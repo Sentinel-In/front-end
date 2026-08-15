@@ -1,32 +1,47 @@
-# React + TypeScript + Vite
+# Sentinel-In: Executive & Analyst Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Sentinel-In is a React-based frontend application that serves as a read-only materialized view into the Security AI's established graph (the "Blackboard"). It provides distinct, persona-driven interfaces for Executives, On-Call Leads, and Security Analysts to investigate security incidents, assess asset impacts, and review raw evidence.
 
-Currently, two official plugins are available:
+## Architecture
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+This frontend relies strictly on the **Blackboard state** (as defined in `SPEC-002`). It does not compute risk directly, but rather renders the orchestration layer's consensus:
 
-## React Compiler
+* **Materialized Blackboard:** UI components consume from `useBlackboardStore`, avoiding deeply nested prop drilling and ensuring a single source of truth.
+* **Role-Gated Interface:** Using `useRoleStore` and `<RoleGate>`, the application seamlessly pivots data density and available tabs based on the user's role:
+  * **Executive:** High-level dashboard, coverage metrics, and PDF exports.
+  * **On-Call Lead:** Asset-impact focus, remediation planning, and phase progression.
+  * **Analyst:** Deep evidence exploration, raw HTTP/artifact views, and contradiction analysis.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Key Features
 
-## Expanding the Oxlint configuration
+- **Executive Dashboard:** Visualizes investigation coverage, evidence authority, and closure readiness using `recharts`.
+- **Asset Impact Report:** Detailed view of affected assets, missing tenant configurations, and suppression-aware remediation plans.
+- **Evidence Explorer:** Raw, tabbed tables of claims, sources, artifacts, and contradictions. Click any `ProvenanceChip` to view exact extraction origins.
+- **Provenance System:** A unified side-drawer that displays raw text excerpts, locator URLs, and SHA-256 hashes verifying AI claims.
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+## Development
 
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
-```
+The project is built with React 19, TypeScript, Vite, and Zustand for state management.
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+### Getting Started
+
+1. **Install dependencies:**
+   ```bash
+   npm install
+   ```
+
+2. **Start the dev server:**
+   ```bash
+   npm run dev
+   ```
+
+3. **Build for production:**
+   ```bash
+   npm run build
+   ```
+
+## Recent Updates
+
+- Migrated away from the legacy Elasticsearch/ES|QL mock backend in favor of the static `blackboard.json` data ledger.
+- Cleaned up rendering loops via strict Zustand shallow-selector mapping.
+- Established consistent GitHub configurations and ignore rules.
