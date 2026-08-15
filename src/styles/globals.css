@@ -1,0 +1,220 @@
+/* ============================================================
+   Sentinel-In Global Styles
+   SPEC §2, §2b — Base styles, density, transitions, atmosphere
+   ============================================================ */
+
+@import "tailwindcss";
+@import "./tokens.css";
+
+/* Self-hosted IBM Plex fonts — no Google Fonts CDN (SPEC §2) */
+@import "@fontsource/ibm-plex-sans/400.css";
+@import "@fontsource/ibm-plex-sans/500.css";
+@import "@fontsource/ibm-plex-sans/600.css";
+@import "@fontsource/ibm-plex-sans/700.css";
+@import "@fontsource/ibm-plex-mono/400.css";
+@import "@fontsource/ibm-plex-mono/500.css";
+
+/* Tailwind v4 class-based theming — SPEC §2b */
+@custom-variant light (&:where(.light, .light *));
+
+/* ============================================================
+   Base Styles
+   ============================================================ */
+
+html {
+  font-family: var(--font-sans);
+  color: var(--color-text);
+  background-color: var(--color-page);
+  font-size: 14px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background-color: var(--color-page);
+}
+
+/* Minimum font size: 12px — SPEC §2 */
+* {
+  min-font-size: unset; /* browser resets */
+}
+
+/* Mono for IDs, hashes, versions, IPs, CVEs, timestamps — SPEC §2 */
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+/* ============================================================
+   Scrollbar Styling
+   ============================================================ */
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border-2);
+  border-radius: var(--radius-pill);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-dim);
+}
+
+/* ============================================================
+   Theme transitions — SPEC §2b
+   background-color and border-color at 150ms ease.
+   No transition on color — text cross-fading looks broken.
+   Disabled entirely under prefers-reduced-motion.
+   ============================================================ */
+
+html:not(.no-transitions) * {
+  transition-property: background-color, border-color, box-shadow;
+  transition-duration: 150ms;
+  transition-timing-function: ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+/* ============================================================
+   Page Atmosphere — SPEC §2b
+   Dark: Two 4% indigo radial glows in opposite corners
+   Light: Flat --color-page
+   ============================================================ */
+
+#root {
+  min-height: 100vh;
+  position: relative;
+}
+
+#root::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(ellipse 50% 50% at 10% 10%, rgba(124, 107, 245, 0.04), transparent),
+    radial-gradient(ellipse 50% 50% at 90% 90%, rgba(124, 107, 245, 0.04), transparent);
+}
+
+.light #root::before {
+  background: none;
+}
+
+/* ============================================================
+   Density Modes — SPEC §2b
+   Set by role, overridable per table.
+   ============================================================ */
+
+:root {
+  --density-row-height: 48px;
+  --density-body-size: 14px;
+  --density-label-size: 12px;
+  --density-card-padding: 24px;
+}
+
+.density-comfortable {
+  --density-row-height: 48px;
+  --density-body-size: 14px;
+  --density-label-size: 12px;
+  --density-card-padding: 24px;
+}
+
+.density-compact {
+  --density-row-height: 40px;
+  --density-body-size: 13px;
+  --density-label-size: 12px;
+  --density-card-padding: 20px;
+}
+
+.density-dense {
+  --density-row-height: 36px;
+  --density-body-size: 12px;
+  --density-label-size: 12px;
+  --density-card-padding: 16px;
+}
+
+/* ============================================================
+   Card theming — SPEC §2b
+   Dark: 1px border, no shadow
+   Light: 1px border + subtle shadow
+   ============================================================ */
+
+.card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  padding: var(--density-card-padding);
+}
+
+.light .card {
+  box-shadow: 0 1px 2px rgb(16 22 31 / 0.06);
+}
+
+/* ============================================================
+   Focus rings — SPEC §11
+   2px accent, 2px offset, visible against both page and surface
+   ============================================================ */
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* ============================================================
+   Table hover — SPEC §2b
+   Dark: rgb(255 255 255 / 0.02)
+   Light: rgb(16 22 31 / 0.03)
+   ============================================================ */
+
+.table-row-hover:hover {
+  background-color: rgb(255 255 255 / 0.02);
+}
+
+.light .table-row-hover:hover {
+  background-color: rgb(16 22 31 / 0.03);
+}
+
+/* ============================================================
+   Selection and scrollbar for both themes
+   ============================================================ */
+
+::selection {
+  background-color: var(--color-accent);
+  color: white;
+}
+
+/* ============================================================
+   Keyframe Animations
+   ============================================================ */
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+@keyframes shimmer {
+  0% { opacity: 0.5; }
+  50% { opacity: 0.8; }
+  100% { opacity: 0.5; }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+

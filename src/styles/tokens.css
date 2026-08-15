@@ -1,0 +1,77 @@
+/* ============================================================
+   Sentinel-In Design Tokens
+   SPEC §2 — The single source of truth for all visual tokens.
+   Never hardcode a hex outside this file.
+   ============================================================ */
+
+@theme {
+  /* surfaces */
+  --color-page:        #0B0E14;
+  --color-surface:     #12161F;
+  --color-surface-2:   #1A1F2B;
+  --color-surface-3:   #232936;
+  --color-border:      #1E242E;
+  --color-border-2:    #2A303C;
+
+  /* text */
+  --color-text:        #E6E9EF;
+  --color-text-2:      #C3C9D6;
+  --color-text-muted:  #8A93A5;
+  --color-text-dim:    #6B7684;
+
+  /* accent */
+  --color-accent:      #7C6BF5;
+  --color-accent-soft: #B7ADFA;
+  --color-accent-bg:   #1B1E33;
+
+  /* severity — never used decoratively */
+  --color-critical:    #FF6B70;
+  --color-high:        #FF9F52;
+  --color-medium:      #F0CB4D;
+  --color-low:         #6B7684;
+  --color-safe:        #4ADE80;
+
+  /* radii */
+  --radius-card:  16px;
+  --radius-panel: 10px;
+  --radius-ctl:   8px;
+  --radius-chip:  6px;
+  --radius-pill:  999px;
+
+  /* fonts */
+  --font-sans: 'IBM Plex Sans', system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+}
+
+/* ============================================================
+   Light theme overrides — SPEC §2b
+   Every token redefined. No token may exist in only one theme.
+   ============================================================ */
+
+.light {
+  /* surfaces — cool grey-lavender, never pure white page */
+  --color-page:        #F5F6FA;
+  --color-surface:     #FFFFFF;
+  --color-surface-2:   #F0F1F6;
+  --color-surface-3:   #E7E9F0;
+  --color-border:      #E2E5ED;
+  --color-border-2:    #D2D7E2;
+
+  /* text — mirrors the dark surface ramp */
+  --color-text:        #12161F;
+  --color-text-2:      #333B4D;
+  --color-text-muted:  #5A6478;
+  --color-text-dim:    #7B8496;
+
+  /* accent — darkened; #7C6BF5 fails contrast on white */
+  --color-accent:      #5B47E0;
+  --color-accent-soft: #8B7BF0;
+  --color-accent-bg:   #EEEBFE;
+
+  /* severity — SEPARATE VALUES. The dark hues are unreadable on light. */
+  --color-critical:    #D92D33;
+  --color-high:        #B45309;
+  --color-medium:      #A16207;
+  --color-low:         #6B7684;
+  --color-safe:        #15803D;
+}

@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sentinel-In Console — CERT-In Compliance</title>
+    <meta name="description" content="Autonomous CERT-In compliance and threat correlation console. Real-time risk posture, audit trails, and regulatory reporting." />
+
+    <!-- Anti-FOUC: synchronous theme script BEFORE any stylesheet — SPEC §2b -->
+    <script>
+      (function () {
+        var t = localStorage.getItem('sentinel.theme');
+        // Parse Zustand-persisted JSON
+        if (t) {
+          try { t = JSON.parse(t).state.theme; } catch (e) { t = 'dark'; }
+        } else {
+          t = 'dark';
+        }
+        if (t === 'system') t = matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+        if (t === 'light') document.documentElement.classList.add('light');
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
