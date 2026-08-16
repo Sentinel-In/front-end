@@ -6,8 +6,9 @@
 
 import { useState, type ReactNode } from 'react';
 import { AlertTriangle, RefreshCw, Lock, Code, ChevronRight } from 'lucide-react';
-import { useRoleStore } from '../../store/useRoleStore';
-import type { Role } from '../../types';
+import { ROLE_CONFIGS, useRoleStore } from '../../store/useRoleStore';
+import type { RoleCapability } from '../../types';
+import { getAuthoritativeRole } from '../../selectors/rbac';
 import { Button } from './UiPrimitives';
 
 // === Skeleton ===
@@ -110,7 +111,7 @@ export function ErrorState({ error, retry }: ErrorStateProps) {
 // === RoleGate — SPEC §3 ===
 
 interface RoleGateProps {
-  capability: 'canApprove' | 'canSeeRawEvidence' | 'canRunEsql' | 'canExport';
+  capability: RoleCapability;
   fallback?: ReactNode;
   children: ReactNode;
 }
@@ -119,6 +120,8 @@ export function RoleGate({ capability, fallback, children }: RoleGateProps) {
   const capabilities = useRoleStore((s) => s.getCapabilities());
   const config = useRoleStore((s) => s.getConfig());
   const setRole = useRoleStore((s) => s.setRole);
+  const authoritativeRole = getAuthoritativeRole(capability);
+  const authoritativeRoleName = ROLE_CONFIGS[authoritativeRole].identity.title;
 
   if (capabilities[capability]) {
     return <>{children}</>;
@@ -131,12 +134,13 @@ export function RoleGate({ capability, fallback, children }: RoleGateProps) {
   return (
     <RedactedNote
       currentRole={config.identity.shortTitle}
-      onSwitchRole={() => setRole('analyst' as Role)}
+      requiredRole={authoritativeRoleName}
+      onSwitchRole={() => setRole(authoritativeRole)}
     />
   );
 }
 
-function RedactedNote({ currentRole, onSwitchRole }: { currentRole: string; onSwitchRole: () => void }) {
+function RedactedNote({ currentRole, requiredRole, onSwitchRole }: { currentRole: string; requiredRole: string; onSwitchRole: () => void }) {
   return (
     <div
       className="flex items-center gap-3"
@@ -151,7 +155,7 @@ function RedactedNote({ currentRole, onSwitchRole }: { currentRole: string; onSw
     >
       <Lock size={16} style={{ color: 'var(--color-text-dim)', flexShrink: 0 }} />
       <div style={{ flex: 1 }}>
-        Evidence hidden in {currentRole} view — switch to Security Analyst to inspect.
+        This control is locked in the {currentRole} view. The authoritative role is {requiredRole}.
       </div>
       <Button onClick={onSwitchRole} variant="ghost" size="sm">
         Switch role
@@ -165,13 +169,11 @@ function RedactedNote({ currentRole, onSwitchRole }: { currentRole: string; onSw
 interface EsqlBlockProps {
   query: string;
   stats?: { ms: number; hits: number };
-  runnable?: boolean;
-  onRun?: () => void;
 }
 
-export function EsqlBlock({ query, stats, runnable, onRun }: EsqlBlockProps) {
+export function EsqlBlock({ query, stats }: EsqlBlockProps) {
   return (
-    <RoleGate capability="canSeeRawEvidence">
+    <RoleGate capability="canViewRawEvidence">
       <div style={{
         backgroundColor: 'var(--color-surface-2)',
         border: '1px solid var(--color-border)',
@@ -188,11 +190,6 @@ export function EsqlBlock({ query, stats, runnable, onRun }: EsqlBlockProps) {
               <span style={{ fontSize: '11px', fontFamily: 'var(--font-mono)', color: 'var(--color-text-dim)' }}>
                 {stats.ms}ms · {stats.hits} hits
               </span>
-            )}
-            {runnable && (
-              <Button onClick={onRun} variant="ghost" size="sm" icon={<ChevronRight size={12} />}>
-                Run
-              </Button>
             )}
           </div>
         </div>

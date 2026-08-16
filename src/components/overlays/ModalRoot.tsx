@@ -8,6 +8,13 @@ import { useEffect, useRef, type ReactNode } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X } from 'lucide-react';
 import { useAppStore } from '../../store/useAppStore';
+import { LockedControlModal } from './LockedControlModal';
+import { CaseEventIntentModal } from './CaseEventIntentModal';
+import { ApproveAssignModal } from '../../features/lead/ApproveAssignModal';
+import { EscalateModal } from '../../features/lead/EscalateModal';
+import { TicketApprovalModal } from './TicketApprovalModal';
+import { ContainmentAuthModal } from './ContainmentAuthModal';
+import { FinalSignoffModal } from './FinalSignoffModal';
 
 interface ModalContentProps {
   id: string;
@@ -140,6 +147,33 @@ export function ModalRoot() {
             <p style={{ color: 'var(--color-text-2)', fontSize: '14px' }}>
               {(modal.props?.message as string) || ''}
             </p>
+          )}
+          {modal.component === 'LockedControlModal' && (
+            <LockedControlModal
+              requiredRoleName={modal.props?.requiredRoleName as string}
+              onSwitchRole={modal.props?.onSwitchRole as () => void}
+            />
+          )}
+          {modal.component === 'CaseEventIntentModal' && (
+            <CaseEventIntentModal
+              intent={modal.props?.intent as any}
+              onConfirm={modal.props?.onConfirm as () => void}
+            />
+          )}
+          {modal.component === 'ApproveAssignModal' && (
+            <ApproveAssignModal caseId={modal.props?.caseId as string} />
+          )}
+          {modal.component === 'EscalateModal' && (
+            <EscalateModal caseId={modal.props?.caseId as string} />
+          )}
+          {modal.component === 'TicketApprovalModal' && (
+            <TicketApprovalModal approvalId={modal.props?.approvalId as string} caseId={modal.props?.caseId as string} />
+          )}
+          {modal.component === 'ContainmentAuthModal' && (
+            <ContainmentAuthModal ticketId={modal.props?.ticketId as string} caseId={modal.props?.caseId as string} />
+          )}
+          {modal.component === 'FinalSignoffModal' && (
+            <FinalSignoffModal ticketId={modal.props?.ticketId as string} caseId={modal.props?.caseId as string} />
           )}
         </ModalContent>
       ))}

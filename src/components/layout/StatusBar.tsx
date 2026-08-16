@@ -6,10 +6,14 @@
 import { useNavigate } from 'react-router-dom';
 import { Link2, ShieldCheck, Cpu } from 'lucide-react';
 import { useAppStore } from '../../store/useAppStore';
+import { useBlackboardStore } from '../../store/useBlackboardStore';
 
 export function StatusBar() {
   const navigate = useNavigate();
   const pushToast = useAppStore((s) => s.pushToast);
+  const blackboard = useBlackboardStore(s => s.blackboard);
+  const headVersion = blackboard?.audit?.head_version || 0;
+  const lastSeq = blackboard?.audit?.last_event_seq || 0;
 
   return (
     <footer
@@ -42,7 +46,7 @@ export function StatusBar() {
         aria-label="Navigate to audit trail"
       >
         <ShieldCheck size={12} />
-        <span>audit chain #8,441 verified</span>
+        <span>ledger head v{headVersion} · seq {lastSeq}</span>
       </button>
 
       {/* Center: Connection status */}

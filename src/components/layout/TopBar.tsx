@@ -5,11 +5,12 @@
    ============================================================ */
 
 import { useNavigate } from 'react-router-dom';
-import { Search, Bell, Sun, Moon, Monitor } from 'lucide-react';
+import { Search, Sun, Moon, Monitor } from 'lucide-react';
 import { useRoleStore } from '../../store/useRoleStore';
 import { useThemeStore } from '../../store/useThemeStore';
 import { useAppStore } from '../../store/useAppStore';
 import { RoleSwitcher } from './RoleSwitcher';
+import { NotificationDropdown } from '../overlays/NotificationDropdown';
 import type { ThemeMode } from '../../types';
 
 const THEME_OPTIONS: { mode: ThemeMode; icon: typeof Sun; label: string }[] = [
@@ -131,33 +132,7 @@ export function TopBar() {
       {/* Right: Controls */}
       <div className="flex items-center gap-3">
         {/* Notification bell */}
-        <button
-          style={{
-            background: 'none',
-            border: 'none',
-            cursor: 'pointer',
-            color: 'var(--color-text-muted)',
-            padding: '6px',
-            borderRadius: 'var(--radius-ctl)',
-            position: 'relative',
-          }}
-          aria-label="Notifications"
-        >
-          <Bell size={18} />
-          {/* Notification dot */}
-          <span
-            style={{
-              position: 'absolute',
-              top: '4px',
-              right: '4px',
-              width: '7px',
-              height: '7px',
-              borderRadius: '50%',
-              backgroundColor: 'var(--color-critical)',
-              border: '2px solid var(--color-surface)',
-            }}
-          />
-        </button>
+        <NotificationDropdown />
 
         {/* Theme toggle — segmented control (SPEC §2b) */}
         <div

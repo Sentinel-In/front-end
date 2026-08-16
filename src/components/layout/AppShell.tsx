@@ -10,6 +10,7 @@ import { Outlet } from 'react-router-dom';
 import { TopBar } from './TopBar';
 import { TabBar } from './TabBar';
 import { StatusBar } from './StatusBar';
+import { VersionBanner } from './VersionBanner';
 import { ModalRoot } from '../overlays/ModalRoot';
 import { ToastRoot } from '../overlays/ToastRoot';
 import { CommandPalette } from '../overlays/CommandPalette';
@@ -42,6 +43,7 @@ export function AppShell() {
     >
       <TopBar />
       <TabBar />
+      <VersionBanner />
 
       {/* Scrollable main content — SPEC §4 */}
       <main

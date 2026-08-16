@@ -10,6 +10,7 @@ import { motion } from 'framer-motion';
 import {
   LayoutDashboard, ShieldAlert, Server, Ticket, FileText,
   ScrollText, Newspaper, GitBranch, Settings, MoreHorizontal,
+  Search, Clock, AlertTriangle,
 } from 'lucide-react';
 import { useRoleStore } from '../../store/useRoleStore';
 
@@ -23,6 +24,9 @@ const ICON_MAP: Record<string, React.ComponentType<{ size?: number }>> = {
   Newspaper,
   GitBranch,
   Settings,
+  Search,
+  Clock,
+  AlertTriangle,
 };
 
 export function TabBar() {

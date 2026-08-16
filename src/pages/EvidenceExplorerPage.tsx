@@ -3,23 +3,18 @@
    Security Analyst primary workbench.
    ============================================================ */
 
-import { useEffect } from 'react';
 import { useBlackboardStore } from '../store/useBlackboardStore';
-import { GitBranch } from 'lucide-react';
 import { Skeleton, Timestamp, ProvenanceChip, DataTable, Tabs, RoleGate } from '../components/primitives';
+import { ReinvocationPanel } from '../features/analyst/ReinvocationPanel';
+import { ProvenanceGraph } from '../features/analyst/ProvenanceGraph';
 import type { Claim, Source, Artifact, Contradiction } from '../types';
+import { useCaseParam } from '../hooks/useCaseParam';
 
 export function EvidenceExplorerPage() {
+  useCaseParam();
   const blackboard = useBlackboardStore((state) => state.blackboard);
   const isLoading = useBlackboardStore((state) => state.isLoading);
-  const load = useBlackboardStore((state) => state.load);
   const isInitialized = blackboard !== null;
-
-  useEffect(() => {
-    if (!isInitialized && !isLoading) {
-      load();
-    }
-  }, [isInitialized, isLoading, load]);
 
   if (!isInitialized || isLoading || !blackboard) {
     return (
@@ -130,23 +125,10 @@ export function EvidenceExplorerPage() {
         />
       )
     },
-    { 
-      id: 'graph', 
-      label: 'Reference Graph', 
-      content: (
-        <div style={{ padding: '48px', textAlign: 'center' }}>
-          <GitBranch size={32} style={{ color: 'var(--color-text-dim)', margin: '0 auto 16px' }} />
-          <h3 style={{ fontSize: '16px', fontWeight: 500, color: 'var(--color-text)' }}>Reference Graph Visualization</h3>
-          <p style={{ fontSize: '13px', color: 'var(--color-text-muted)', marginTop: '8px' }}>
-            Detailed node-link diagram rendering {blackboard.reference_edges.length} edges. (Mocked visualization pending phase D.2).
-          </p>
-        </div>
-      )
-    },
   ];
 
   return (
-    <div style={{ padding: '32px 24px', maxWidth: '1200px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '24px', height: '100%' }}>
+    <div style={{ padding: '32px 24px 48px', maxWidth: '1440px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '24px' }}>
       
       {/* Header */}
       <div>
@@ -156,10 +138,12 @@ export function EvidenceExplorerPage() {
         </p>
       </div>
 
-      <RoleGate capability="canSeeRawEvidence">
+      <RoleGate capability="canViewRawEvidence">
+        <ProvenanceGraph />
         <div className="card" style={{ flex: 1, padding: 0, overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
           <Tabs items={tabItems} defaultTab="claims" />
         </div>
+        <ReinvocationPanel />
       </RoleGate>
 
     </div>

@@ -1,0 +1,1201 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="design_doc_mode" content="canvas">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  body { margin:0; background:#07090d; color:#E9ECF2; font-family:'IBM Plex Sans',Helvetica,Arial,sans-serif; -webkit-font-smoothing:antialiased; }
+  a { color:#9A8CFF; text-decoration:none; }
+  a:hover { color:#B7ADFF; }
+  details > summary { list-style:none; cursor:pointer; }
+  details > summary::-webkit-details-marker { display:none; }
+  ::selection { background:#332a6b; }
+</style>
+</helmet>
+
+<div style="display:flex; flex-direction:column; gap:56px; padding:40px; background:#07090d;">
+
+<!-- ========================= SCREEN 01 · DESIGN SYSTEM ========================= -->
+<section data-screen-label="01 Design System" style="display:flex; flex-direction:column; gap:14px;">
+  <div style="display:flex; align-items:baseline; gap:12px;">
+    <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:0.1em; color:#6F7A8B;">SCREEN 01</span>
+    <span style="font-size:13px; color:#A2ABBA;">Design system sheet — tokens &amp; primitives</span>
+  </div>
+
+  <div style="width:1440px; background:#0B0E14; background-image:radial-gradient(760px 420px at 4% -6%, rgba(124,107,245,0.10), transparent 70%), radial-gradient(720px 400px at 98% 104%, rgba(124,107,245,0.09), transparent 70%); padding:28px; display:flex; flex-direction:column; gap:20px;">
+
+    <div style="display:flex; align-items:flex-end; justify-content:space-between;">
+      <div style="display:flex; flex-direction:column; gap:6px;">
+        <span style="font-size:20px; font-weight:600; letter-spacing:-0.01em;">Sentinel-In — Console Foundations</span>
+        <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#6F7A8B;">tokens v2.0 · dark only · 1440 grid · 4px base · radius 16 / 10</span>
+      </div>
+      <div style="display:flex; gap:10px;">
+        <div style="background:#12161F; border:1px solid #1E242E; border-radius:12px; padding:10px 14px; display:flex; flex-direction:column; gap:4px;"><span style="font-size:12px; letter-spacing:0.04em; color:#6F7A8B;">UI SANS</span><span style="font-size:13px; color:#E9ECF2;">IBM Plex Sans</span></div>
+        <div style="background:#12161F; border:1px solid #1E242E; border-radius:12px; padding:10px 14px; display:flex; flex-direction:column; gap:4px;"><span style="font-size:12px; letter-spacing:0.04em; color:#6F7A8B;">DATA MONO</span><span style="font-family:'IBM Plex Mono',monospace; font-size:13px; color:#E9ECF2;">IBM Plex Mono</span></div>
+        <div style="background:#12161F; border:1px solid #1E242E; border-radius:12px; padding:10px 14px; display:flex; flex-direction:column; gap:4px;"><span style="font-size:12px; letter-spacing:0.04em; color:#6F7A8B;">ACCENT</span><span style="font-family:'IBM Plex Mono',monospace; font-size:13px; color:#9A8CFF;">#7C6BF5</span></div>
+      </div>
+    </div>
+
+    <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:16px;">
+      <!-- surfaces -->
+      <div style="background:#12161F; border:1px solid #1E242E; border-radius:16px; padding:22px; display:flex; flex-direction:column; gap:14px;">
+        <span style="font-size:15px; font-weight:500;">Surfaces &amp; ink</span>
+        <div style="display:flex; flex-direction:column; gap:8px;">
+          <div style="display:flex; align-items:center; gap:12px; background:#171C26; border-radius:10px; padding:9px 12px;"><span style="width:26px; height:26px; border-radius:8px; background:#0B0E14;"></span><span style="font-size:13px; flex:1;">page</span><span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#A2ABBA;">#0B0E14</span></div>
+          <div style="display:flex; align-items:center; gap:12px; background:#171C26; border-radius:10px; padding:9px 12px;"><span style="width:26px; height:26px; border-radius:8px; background:#12161F; border:1px solid #1E242E;"></span><span style="font-size:13px; flex:1;">card</span><span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#A2ABBA;">#12161F</span></div>
+          <div style="display:flex; align-items:center; gap:12px; background:#171C26; border-radius:10px; padding:9px 12px;"><span style="width:26px; height:26px; border-radius:8px; background:#171C26;"></span><span style="font-size:13px; flex:1;">nested</span><span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#A2ABBA;">#171C26</span></div>
+          <div style="display:flex; align-items:center; gap:12px; background:#171C26; border-radius:10px; padding:9px 12px;"><span style="width:26px; height:26px; border-radius:8px; background:#1E242E;"></span><span style="font-size:13px; flex:1;">card border</span><span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#A2ABBA;">#1E242E</span></div>
+          <div style="display:flex; align-items:center; gap:12px; background:#171C26; border-radius:10px; padding:9px 12px;"><span style="width:26px; height:26px; border-radius:8px; background:#7C6BF5;"></span><span style="font-size:13px; flex:1;">accent · indigo-violet</span><span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#A2ABBA;">#7C6BF5</span></div>
+          <div style="display:flex; align-items:center; gap:12px; background:#171C26; border-radius:10px; padding:9px 12px;"><span style="display:flex; gap:4px;"><span style="width:26px; height:26px; border-radius:8px; background:#E9ECF2;"></span><span style="width:26px; height:26px; border-radius:8px; background:#A2ABBA;"></span><span style="width:26px; height:26px; border-radius:8px; background:#6F7A8B;"></span></span><span style="font-size:13px; flex:1;">ink high / mid / muted</span></div>
+        </div>
+      </div>
+
+      <!-- severity -->
+      <div style="background:#12161F; border:1px solid #1E242E; border-radius:16px; padding:22px; display:flex; flex-direction:column; gap:14px;">
+        <div style="display:flex; align-items:baseline; gap:10px;"><span style="font-size:15px; font-weight:500;">Severity</span><span style="font-size:12px; color:#6F7A8B;">reserved — never decorative</span></div>
+        <div style="display:flex; flex-direction:column; gap:8px;">
+          <div style="display:flex; align-items:center; gap:12px; background:#171C26; border-radius:10px; padding:8px 12px;"><span style="display:inline-flex; align-items:center; gap:7px; border-radius:6px; padding:4px 10px; background:rgba(255,107,112,0.12); color:#FF6B70; font-size:12px; letter-spacing:0.04em;"><span style="width:6px; height:6px; border-radius:50%; background:#FF6B70;"></span>CRITICAL</span><span style="flex:1;"></span><span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#A2ABBA;">#FF6B70</span></div>
+          <div style="display:flex; align-items:center; gap:12px; background:#171C26; border-radius:10px; padding:8px 12px;"><span style="display:inline-flex; align-items:center; gap:7px; border-radius:6px; padding:4px 10px; background:rgba(255,159,82,0.12); color:#FF9F52; font-size:12px; letter-spacing:0.04em;"><span style="width:6px; height:6px; border-radius:50%; background:#FF9F52;"></span>HIGH</span><span style="flex:1;"></span><span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#A2ABBA;">#FF9F52</span></div>
+          <div style="display:flex; align-items:center; gap:12px; background:#171C26; border-radius:10px; padding:8px 12px;"><span style="display:inline-flex; align-items:center; gap:7px; border-radius:6px; padding:4px 10px; background:rgba(240,203,77,0.12); color:#F0CB4D; font-size:12px; letter-spacing:0.04em;"><span style="width:6px; height:6px; border-radius:50%; background:#F0CB4D;"></span>MEDIUM</span><span style="flex:1;"></span><span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#A2ABBA;">#F0CB4D</span></div>
+          <div style="display:flex; align-items:center; gap:12px; background:#171C26; border-radius:10px; padding:8px 12px;"><span style="display:inline-flex; align-items:center; gap:7px; border-radius:6px; padding:4px 10px; background:rgba(111,122,139,0.16); color:#9EA9B8; font-size:12px; letter-spacing:0.04em;"><span style="width:6px; height:6px; border-radius:50%; background:#6F7A8B;"></span>LOW</span><span style="flex:1;"></span><span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#A2ABBA;">#6B7684</span></div>
+        </div>
+        <div style="display:flex; align-items:center; gap:8px; margin-top:2px;">
+          <span style="font-size:12px; color:#6F7A8B; letter-spacing:0.04em;">PRIORITY</span>
+          <span style="border-radius:6px; padding:4px 9px; background:rgba(255,107,112,0.12); color:#FF6B70; font-family:'IBM Plex Mono',monospace; font-size:12px;">P1</span>
+          <span style="border-radius:6px; padding:4px 9px; background:rgba(255,159,82,0.12); color:#FF9F52; font-family:'IBM Plex Mono',monospace; font-size:12px;">P2</span>
+          <span style="border-radius:6px; padding:4px 9px; background:rgba(240,203,77,0.12); color:#F0CB4D; font-family:'IBM Plex Mono',monospace; font-size:12px;">P3</span>
+          <span style="border-radius:6px; padding:4px 9px; background:rgba(111,122,139,0.16); color:#9EA9B8; font-family:'IBM Plex Mono',monospace; font-size:12px;">P4</span>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:7px; background:#171C26; border-radius:10px; padding:12px;">
+          <span style="font-size:12px; color:#6F7A8B; letter-spacing:0.04em;">DELTA PILL</span>
+          <div style="display:flex; gap:8px;">
+            <span style="border-radius:6px; padding:3px 9px; background:rgba(92,209,166,0.14); color:#5CD1A6; font-family:'IBM Plex Mono',monospace; font-size:12px;">+4</span>
+            <span style="border-radius:6px; padding:3px 9px; background:rgba(255,138,142,0.13); color:#FF8A8E; font-family:'IBM Plex Mono',monospace; font-size:12px;">−8%</span>
+            <span style="border-radius:6px; padding:3px 9px; background:#1E242E; color:#A2ABBA; font-family:'IBM Plex Mono',monospace; font-size:12px;">0</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- type + density -->
+      <div style="background:#12161F; border:1px solid #1E242E; border-radius:16px; padding:22px; display:flex; flex-direction:column; gap:14px;">
+        <span style="font-size:15px; font-weight:500;">Type scale &amp; density</span>
+        <div style="display:flex; flex-direction:column; gap:12px;">
+          <div style="display:flex; align-items:baseline; gap:14px;"><span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#6F7A8B; width:104px;">score/44/600</span><span style="font-size:44px; font-weight:600; line-height:1; letter-spacing:-0.03em;">94</span></div>
+          <div style="display:flex; align-items:baseline; gap:14px;"><span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#6F7A8B; width:104px;">metric/28/600</span><span style="font-family:'IBM Plex Mono',monospace; font-size:28px; font-weight:500; line-height:1;">23</span></div>
+          <div style="display:flex; align-items:baseline; gap:14px;"><span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#6F7A8B; width:104px;">header/15/500</span><span style="font-size:15px; font-weight:500;">Risk breakdown</span></div>
+          <div style="display:flex; align-items:baseline; gap:14px;"><span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#6F7A8B; width:104px;">body/13/400</span><span style="font-size:13px;">Deterministic rules, not model output.</span></div>
+          <div style="display:flex; align-items:baseline; gap:14px;"><span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#6F7A8B; width:104px;">label/12/muted</span><span style="font-size:12px; color:#6F7A8B; letter-spacing:0.04em;">AFFECTED ASSETS</span></div>
+          <div style="display:flex; align-items:baseline; gap:14px;"><span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#6F7A8B; width:104px;">mono/13</span><span style="font-family:'IBM Plex Mono',monospace; font-size:13px; color:#E9ECF2;">vpn-prod-mum-01</span></div>
+        </div>
+        <div style="background:#171C26; border-radius:10px; padding:12px; font-size:13px; color:#A2ABBA; line-height:1.6;">Table rows 44px, borderless — hover tint only. Card radius 16, nested radius 10. Borders mark card edges; inside a card, tone and spacing do the work. Minimum type size 12px.</div>
+      </div>
+    </div>
+
+    <!-- lifecycle -->
+    <div style="background:#12161F; border:1px solid #1E242E; border-radius:16px; padding:22px; display:flex; flex-direction:column; gap:14px;">
+      <div style="display:flex; align-items:baseline; gap:10px;"><span style="font-size:15px; font-weight:500;">Lifecycle status</span><span style="font-size:12px; color:#6F7A8B;">9 states · tinted pill, 6px radius · progress reads left → right</span></div>
+      <div style="display:flex; flex-wrap:wrap; gap:8px;">
+        <span style="display:inline-flex; align-items:center; gap:7px; border-radius:6px; padding:6px 11px; background:#171C26; color:#A2ABBA; font-family:'IBM Plex Mono',monospace; font-size:12px;"><span style="width:6px; height:6px; border-radius:50%; background:#6F7A8B;"></span>INGESTED</span>
+        <span style="display:inline-flex; align-items:center; gap:7px; border-radius:6px; padding:6px 11px; background:#171C26; color:#A2ABBA; font-family:'IBM Plex Mono',monospace; font-size:12px;"><span style="width:6px; height:6px; border-radius:50%; background:#6F7A8B;"></span>ANALYSING</span>
+        <span style="display:inline-flex; align-items:center; gap:7px; border-radius:6px; padding:6px 11px; background:#171C26; color:#A2ABBA; font-family:'IBM Plex Mono',monospace; font-size:12px;"><span style="width:6px; height:6px; border-radius:50%; background:#6F7A8B;"></span>CORRELATED</span>
+        <span style="display:inline-flex; align-items:center; gap:7px; border-radius:6px; padding:6px 11px; background:#171C26; color:#A2ABBA; font-family:'IBM Plex Mono',monospace; font-size:12px;"><span style="width:6px; height:6px; border-radius:50%; background:#6F7A8B;"></span>RISK_ASSESSED</span>
+        <span style="display:inline-flex; align-items:center; gap:7px; border-radius:6px; padding:6px 11px; background:rgba(124,107,245,0.12); color:#9A8CFF; font-family:'IBM Plex Mono',monospace; font-size:12px;"><span style="width:6px; height:6px; border-radius:50%; background:#7C6BF5;"></span>ACTION_PROPOSED</span>
+        <span style="display:inline-flex; align-items:center; gap:7px; border-radius:6px; padding:6px 11px; background:rgba(124,107,245,0.2); color:#C3BAFF; font-family:'IBM Plex Mono',monospace; font-size:12px;"><span style="width:6px; height:6px; border-radius:50%; background:#7C6BF5; box-shadow:0 0 0 4px rgba(124,107,245,0.18);"></span>PENDING_APPROVAL</span>
+        <span style="display:inline-flex; align-items:center; gap:7px; border-radius:6px; padding:6px 11px; background:#171C26; color:#D2D8E2; font-family:'IBM Plex Mono',monospace; font-size:12px;"><span style="width:6px; height:6px; border-radius:50%; background:#A2ABBA;"></span>TICKET_OPEN</span>
+        <span style="display:inline-flex; align-items:center; gap:7px; border-radius:6px; padding:6px 11px; background:#171C26; color:#D2D8E2; font-family:'IBM Plex Mono',monospace; font-size:12px;"><span style="width:6px; height:6px; border-radius:50%; background:#A2ABBA;"></span>IN_PROGRESS</span>
+        <span style="display:inline-flex; align-items:center; gap:7px; border-radius:6px; padding:6px 11px; background:rgba(92,209,166,0.12); color:#5CD1A6; font-family:'IBM Plex Mono',monospace; font-size:12px;"><span style="width:6px; height:6px; border-radius:50%; background:#5CD1A6;"></span>RESOLVED</span>
+      </div>
+    </div>
+
+    <div style="display:grid; grid-template-columns:1.1fr 1fr; gap:16px;">
+      <!-- chips + ids -->
+      <div style="background:#12161F; border:1px solid #1E242E; border-radius:16px; padding:22px; display:flex; flex-direction:column; gap:14px;">
+        <div style="display:flex; align-items:baseline; gap:10px;"><span style="font-size:15px; font-weight:500;">Entity chip</span><span style="font-size:12px; color:#6F7A8B;">6 variants + hover (last)</span></div>
+        <div style="display:flex; flex-wrap:wrap; gap:8px;">
+          <span style="display:inline-flex; align-items:center; gap:8px; border-radius:8px; padding:6px 11px; background:#171C26; font-size:12px; color:#6F7A8B;" style-hover="background:#1C2230;"><span>host</span><span style="font-family:'IBM Plex Mono',monospace; font-size:13px; color:#E9ECF2;">vpn-prod-mum-01</span></span>
+          <span style="display:inline-flex; align-items:center; gap:8px; border-radius:8px; padding:6px 11px; background:#171C26; font-size:12px; color:#6F7A8B;" style-hover="background:#1C2230;"><span>user</span><span style="font-family:'IBM Plex Mono',monospace; font-size:13px; color:#E9ECF2;">svc_vpn_bind</span></span>
+          <span style="display:inline-flex; align-items:center; gap:8px; border-radius:8px; padding:6px 11px; background:#171C26; font-size:12px; color:#6F7A8B;" style-hover="background:#1C2230;"><span>ip</span><span style="font-family:'IBM Plex Mono',monospace; font-size:13px; color:#E9ECF2;">103.21.244.17</span></span>
+          <span style="display:inline-flex; align-items:center; gap:8px; border-radius:8px; padding:6px 11px; background:#171C26; font-size:12px; color:#6F7A8B;" style-hover="background:#1C2230;"><span>cve</span><span style="font-family:'IBM Plex Mono',monospace; font-size:13px; color:#E9ECF2;">CVE-2026-41007</span></span>
+          <span style="display:inline-flex; align-items:center; gap:8px; border-radius:8px; padding:6px 11px; background:#171C26; font-size:12px; color:#6F7A8B;" style-hover="background:#1C2230;"><span>pkg</span><span style="font-family:'IBM Plex Mono',monospace; font-size:13px; color:#E9ECF2;">acme-vpn-gateway 5.3.1</span></span>
+          <span style="display:inline-flex; align-items:center; gap:8px; border-radius:8px; padding:6px 11px; background:#171C26; font-size:12px; color:#6F7A8B;" style-hover="background:#1C2230;"><span>ticket</span><span style="font-family:'IBM Plex Mono',monospace; font-size:13px; color:#E9ECF2;">TKT-2026-0007</span></span>
+          <span style="display:inline-flex; align-items:center; gap:8px; border-radius:8px; padding:6px 11px; background:rgba(124,107,245,0.14); font-size:12px; color:#9A8CFF;"><span>host</span><span style="font-family:'IBM Plex Mono',monospace; font-size:13px; color:#FFFFFF;">vpn-prod-blr-01</span><span style="font-size:12px; color:#9A8CFF;">↗</span></span>
+        </div>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+          <div style="background:#171C26; border-radius:10px; padding:14px; display:flex; flex-direction:column; gap:9px;">
+            <span style="font-size:12px; color:#6F7A8B; letter-spacing:0.04em;">COPYABLE ID</span>
+            <span style="display:inline-flex; align-items:center; gap:8px; font-family:'IBM Plex Mono',monospace; font-size:13px; color:#E9ECF2;" style-hover="color:#C3BAFF;">corr-8f7a2c1e <span style="color:#6F7A8B;">⧉</span></span>
+            <span style="display:inline-flex; align-items:center; gap:8px; font-family:'IBM Plex Mono',monospace; font-size:13px; color:#E9ECF2;">sha256:9c14ab…07f2 <span style="color:#6F7A8B;">⧉</span></span>
+          </div>
+          <div style="background:#171C26; border-radius:10px; padding:14px; display:flex; flex-direction:column; gap:9px;">
+            <span style="font-size:12px; color:#6F7A8B; letter-spacing:0.04em;">TIMESTAMP</span>
+            <span style="font-family:'IBM Plex Mono',monospace; font-size:13px; color:#E9ECF2;">2026-08-13 06:12:44 IST</span>
+            <span style="font-family:'IBM Plex Mono',monospace; font-size:13px; color:#6F7A8B;">3h 41m ago</span>
+          </div>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:10px;">
+          <span style="font-size:12px; color:#6F7A8B; letter-spacing:0.04em;">FILTER ROW</span>
+          <div style="display:flex; gap:8px;">
+            <span style="display:inline-flex; align-items:center; gap:7px; border-radius:999px; padding:7px 14px; background:#7C6BF5; color:#0B0E14; font-size:13px; font-weight:500;">Critical <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; background:rgba(11,14,20,0.22); border-radius:999px; padding:1px 7px;">3</span></span>
+            <span style="display:inline-flex; align-items:center; gap:7px; border-radius:999px; padding:7px 14px; color:#A2ABBA; font-size:13px;" style-hover="background:#171C26;">High <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; background:#171C26; border-radius:999px; padding:1px 7px;">5</span></span>
+            <span style="display:inline-flex; align-items:center; gap:7px; border-radius:999px; padding:7px 14px; color:#A2ABBA; font-size:13px;" style-hover="background:#171C26;">All <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; background:#171C26; border-radius:999px; padding:1px 7px;">12</span></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- kpi + table + identity -->
+      <div style="background:#12161F; border:1px solid #1E242E; border-radius:16px; padding:22px; display:flex; flex-direction:column; gap:14px;">
+        <div style="display:flex; align-items:baseline; gap:10px;"><span style="font-size:15px; font-weight:500;">KPI card &amp; table rows</span><span style="font-size:12px; color:#6F7A8B;">label · delta · number · comparison</span></div>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+          <div style="background:#171C26; border-radius:10px; padding:16px; display:flex; flex-direction:column; gap:18px;">
+            <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:10px;"><span style="font-size:12px; color:#6F7A8B; letter-spacing:0.04em;">ACTIVE ALERTS</span><span style="border-radius:6px; padding:2px 8px; background:rgba(255,138,142,0.13); color:#FF8A8E; font-family:'IBM Plex Mono',monospace; font-size:12px;">+2</span></div>
+            <div style="display:flex; align-items:flex-end; justify-content:space-between; gap:10px;"><span style="font-family:'IBM Plex Mono',monospace; font-size:28px; font-weight:500; line-height:1;">7</span><span style="font-size:12px; color:#6F7A8B;">vs 24h ago</span></div>
+          </div>
+          <div style="background:#171C26; border-radius:10px; padding:16px; display:flex; flex-direction:column; gap:18px;">
+            <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:10px;"><span style="font-size:12px; color:#6F7A8B; letter-spacing:0.04em;">SLA POSTURE</span><span style="border-radius:6px; padding:2px 8px; background:rgba(92,209,166,0.14); color:#5CD1A6; font-family:'IBM Plex Mono',monospace; font-size:12px;">0 breached</span></div>
+            <div style="display:flex; align-items:flex-end; justify-content:space-between; gap:10px;"><span style="font-family:'IBM Plex Mono',monospace; font-size:28px; font-weight:500; line-height:1;">2</span><span style="font-size:12px; color:#6F7A8B;">at risk of 12</span></div>
+          </div>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:2px;">
+          <div style="display:grid; grid-template-columns:1.6fr 0.8fr 0.9fr; height:32px; align-items:center; padding:0 12px; font-size:12px; color:#6F7A8B; letter-spacing:0.04em;"><span>HOST</span><span>ENVIRONMENT</span><span>VERSION</span></div>
+          <div style="display:grid; grid-template-columns:1.6fr 0.8fr 0.9fr; height:44px; align-items:center; padding:0 12px; border-radius:10px;" style-hover="background:#171C26;">
+            <span style="display:flex; flex-direction:column; gap:1px;"><span style="font-family:'IBM Plex Mono',monospace; font-size:13px; color:#E9ECF2;">vpn-prod-blr-02</span><span style="font-size:12px; color:#6F7A8B;">Platform/SRE</span></span>
+            <span style="font-size:13px; color:#A2ABBA;">production</span><span style="font-family:'IBM Plex Mono',monospace; font-size:13px; color:#A2ABBA;">5.2.9</span>
+          </div>
+          <div style="display:grid; grid-template-columns:1.6fr 0.8fr 0.9fr; height:44px; align-items:center; padding:0 12px; border-radius:10px; background:#171C26;">
+            <span style="display:flex; flex-direction:column; gap:1px;"><span style="font-family:'IBM Plex Mono',monospace; font-size:13px; color:#FFFFFF;">vpn-prod-del-01</span><span style="font-size:12px; color:#6F7A8B;">Network Eng</span></span>
+            <span style="font-size:13px; color:#A2ABBA;">production</span><span style="font-family:'IBM Plex Mono',monospace; font-size:13px; color:#A2ABBA;">5.2.9</span>
+          </div>
+          <div style="display:grid; grid-template-columns:1.6fr 0.8fr 0.9fr; height:44px; align-items:center; padding:0 12px; border-radius:10px; background:rgba(124,107,245,0.12);">
+            <span style="display:flex; flex-direction:column; gap:1px;"><span style="font-family:'IBM Plex Mono',monospace; font-size:13px; color:#FFFFFF;">vpn-prod-mum-01</span><span style="font-size:12px; color:#9A8CFF;">Platform/SRE</span></span>
+            <span style="font-size:13px; color:#C3BAFF;">production</span><span style="font-family:'IBM Plex Mono',monospace; font-size:13px; color:#C3BAFF;">5.3.1</span>
+          </div>
+          <span style="font-size:12px; color:#6F7A8B; padding:6px 12px 0;">default · hover · selected — identity cell stacks host over owner team</span>
+        </div>
+      </div>
+    </div>
+
+    <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:16px;">
+      <div style="background:#12161F; border:1px solid #1E242E; border-radius:16px; padding:22px; display:flex; flex-direction:column; gap:14px;">
+        <span style="font-size:15px; font-weight:500;">Buttons &amp; inputs</span>
+        <div style="display:flex; flex-wrap:wrap; gap:8px;">
+          <button style="height:36px; padding:0 18px; border-radius:10px; background:#7C6BF5; color:#0B0E14; border:none; font-family:'IBM Plex Sans',sans-serif; font-size:13px; font-weight:600; cursor:pointer;" style-hover="background:#8F80F8;">Approve</button>
+          <button style="height:36px; padding:0 18px; border-radius:10px; background:#171C26; color:#D2D8E2; border:none; font-family:'IBM Plex Sans',sans-serif; font-size:13px; cursor:pointer;" style-hover="background:#1E2532;">Assign</button>
+          <button style="height:36px; padding:0 18px; border-radius:10px; background:rgba(255,107,112,0.12); color:#FF8A8E; border:none; font-family:'IBM Plex Sans',sans-serif; font-size:13px; cursor:pointer;" style-hover="background:rgba(255,107,112,0.2);">Reject</button>
+          <button style="height:36px; padding:0 18px; border-radius:10px; background:#151A22; color:#4E5766; border:none; font-family:'IBM Plex Sans',sans-serif; font-size:13px; cursor:not-allowed;">Approve</button>
+        </div>
+        <span style="font-size:12px; color:#6F7A8B;">primary · secondary · destructive · disabled</span>
+        <div style="display:flex; flex-direction:column; gap:9px;">
+          <div style="display:flex; align-items:center; gap:9px; height:38px; border-radius:10px; background:#171C26; padding:0 12px;"><span style="color:#6F7A8B; font-size:13px;">⌕</span><span style="font-family:'IBM Plex Mono',monospace; font-size:13px; color:#4E5766;">host.name: …</span></div>
+          <div style="display:flex; align-items:center; gap:9px; height:38px; border-radius:10px; background:#171C26; padding:0 12px; box-shadow:0 0 0 1px #7C6BF5;"><span style="color:#9A8CFF; font-size:13px;">⌕</span><span style="font-family:'IBM Plex Mono',monospace; font-size:13px; color:#FFFFFF;">vpn-prod-mum-01<span style="color:#7C6BF5;">|</span></span></div>
+        </div>
+      </div>
+
+      <div style="background:#12161F; border:1px solid #1E242E; border-radius:16px; padding:22px; display:flex; flex-direction:column; gap:14px;">
+        <span style="font-size:15px; font-weight:500;">Pill tab bar &amp; empty state</span>
+        <div style="display:flex; gap:4px; background:#171C26; border-radius:12px; padding:4px; align-self:flex-start;">
+          <span style="border-radius:9px; padding:7px 14px; background:#232A38; color:#FFFFFF; font-size:13px; box-shadow:0 0 0 1px #2C3444;">Overview</span>
+          <span style="border-radius:9px; padding:7px 14px; color:#A2ABBA; font-size:13px;" style-hover="color:#FFFFFF;">Assets</span>
+          <span style="border-radius:9px; padding:7px 14px; color:#A2ABBA; font-size:13px;" style-hover="color:#FFFFFF;">Evidence</span>
+          <span style="border-radius:9px; padding:7px 14px; color:#4E5766; font-size:13px;">Audit</span>
+        </div>
+        <div style="background:#171C26; border-radius:10px; padding:20px; display:flex; flex-direction:column; gap:7px; align-items:flex-start;">
+          <span style="width:22px; height:22px; border-radius:7px; background:#1E2532;"></span>
+          <span style="font-size:13px; color:#E9ECF2;">No correlations for this advisory</span>
+          <span style="font-size:12px; color:#6F7A8B;">Last correlation run 14s ago · 0 asset matches</span>
+          <span style="font-size:13px; color:#9A8CFF;">Re-run correlation</span>
+        </div>
+      </div>
+
+      <div style="background:#12161F; border:1px solid #1E242E; border-radius:16px; padding:22px; display:flex; flex-direction:column; gap:14px;">
+        <span style="font-size:15px; font-weight:500;">Skeleton &amp; provenance rule</span>
+        <div style="display:flex; flex-direction:column; gap:10px;">
+          <span style="height:12px; width:72%; border-radius:6px; background:#1B212C;"></span>
+          <span style="height:12px; width:90%; border-radius:6px; background:#1B212C;"></span>
+          <span style="height:12px; width:46%; border-radius:6px; background:#1B212C;"></span>
+          <div style="display:flex; gap:8px; margin-top:2px;"><span style="height:32px; width:128px; border-radius:10px; background:#171C26;"></span><span style="height:32px; width:96px; border-radius:10px; background:#171C26;"></span></div>
+        </div>
+        <div style="background:#171C26; border-radius:10px; padding:14px; font-size:13px; color:#A2ABBA; line-height:1.6;">Every number renders next to its source record ID in mono. Risk factors are rule-derived; model output is confined to <span style="font-family:'IBM Plex Mono',monospace; color:#E9ECF2;">explanation</span> and <span style="font-family:'IBM Plex Mono',monospace; color:#E9ECF2;">draft_action</span> and always labelled.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================= SCREEN 02 · APP SHELL ========================= -->
+<section data-screen-label="02 App Shell" style="display:flex; flex-direction:column; gap:14px;">
+  <div style="display:flex; align-items:baseline; gap:12px;">
+    <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:0.1em; color:#6F7A8B;">SCREEN 02</span>
+    <span style="font-size:13px; color:#A2ABBA;">App shell — pinned top bar, work queue first, counters demoted, assistant collapsed to a FAB</span>
+  </div>
+
+  <div style="width:1440px; height:1024px; position:relative; background:#0B0E14; background-image:radial-gradient(820px 460px at 2% -8%, rgba(124,107,245,0.10), transparent 70%), radial-gradient(760px 420px at 99% 106%, rgba(124,107,245,0.08), transparent 70%); display:flex; flex-direction:column; overflow:hidden;">
+
+    <!-- pinned top bar (scrolled state: denser bg + hairline) -->
+    <div style="position:sticky; top:0; z-index:20; height:60px; flex:none; display:flex; align-items:center; padding:0 24px; gap:16px; background:#0D1119; border-bottom:1px solid #1E242E;">
+      <div style="display:flex; align-items:center; gap:10px;">
+        <span style="width:24px; height:24px; border-radius:8px; background:#7C6BF5; display:inline-flex; align-items:center; justify-content:center;"><span style="width:8px; height:8px; border-radius:50%; background:#0B0E14;"></span></span>
+        <span style="font-size:15px; font-weight:600; letter-spacing:-0.01em;">Sentinel-In</span>
+        <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#6F7A8B;">v0.9.3</span>
+      </div>
+      <div style="flex:1; display:flex; justify-content:center;">
+        <div style="display:flex; align-items:center; gap:4px; background:#12161F; border:1px solid #1E242E; border-radius:14px; padding:5px;">
+          <span style="border-radius:10px; padding:8px 16px; background:#1E2532; color:#FFFFFF; font-size:13px; font-weight:500; box-shadow:0 0 0 1px #2C3444;">Dashboard</span>
+          <span style="display:inline-flex; align-items:center; gap:8px; border-radius:10px; padding:8px 16px; color:#A2ABBA; font-size:13px;" style-hover="color:#FFFFFF;">Alerts <span style="border-radius:999px; padding:1px 7px; background:rgba(255,107,112,0.14); color:#FF6B70; font-family:'IBM Plex Mono',monospace; font-size:12px;">7</span></span>
+          <span style="border-radius:10px; padding:8px 16px; color:#A2ABBA; font-size:13px;" style-hover="color:#FFFFFF;">Infrastructure</span>
+          <span style="display:inline-flex; align-items:center; gap:8px; border-radius:10px; padding:8px 16px; color:#A2ABBA; font-size:13px;" style-hover="color:#FFFFFF;">Tickets <span style="border-radius:999px; padding:1px 7px; background:#1E242E; color:#D2D8E2; font-family:'IBM Plex Mono',monospace; font-size:12px;">12</span></span>
+          <span style="border-radius:10px; padding:8px 16px; color:#A2ABBA; font-size:13px;" style-hover="color:#FFFFFF;">Reports</span>
+          <span style="border-radius:10px; padding:8px 14px; color:#6F7A8B; font-size:13px;" style-hover="color:#FFFFFF;">More ▾</span>
+        </div>
+      </div>
+      <div style="display:flex; align-items:center; gap:10px;">
+        <div style="display:flex; align-items:center; gap:9px; height:36px; border-radius:10px; background:#12161F; border:1px solid #1E242E; padding:0 12px;">
+          <span style="color:#6F7A8B; font-size:13px;">⌕</span><span style="font-size:13px; color:#6F7A8B;">Search entity</span>
+          <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#A2ABBA; background:#171C26; border-radius:6px; padding:2px 6px;">⌘K</span>
+        </div>
+        <span style="width:36px; height:36px; border-radius:10px; background:#12161F; border:1px solid #1E242E; display:inline-flex; align-items:center; justify-content:center; position:relative; color:#A2ABBA; font-size:13px;">◔<span style="position:absolute; top:8px; right:9px; width:6px; height:6px; border-radius:50%; background:#FF6B70;"></span></span>
+        <div style="display:flex; align-items:center; gap:9px; height:36px; border-radius:10px; background:#12161F; border:1px solid #1E242E; padding:0 12px;"><span style="font-size:13px; color:#D2D8E2;">SOC Manager</span><span style="font-size:12px; color:#6F7A8B;">▾</span></div>
+        <span style="width:36px; height:36px; border-radius:10px; background:rgba(124,107,245,0.16); color:#C3BAFF; display:inline-flex; align-items:center; justify-content:center; font-family:'IBM Plex Mono',monospace; font-size:13px;">MR</span>
+      </div>
+    </div>
+
+    <div style="flex:1; min-height:0; display:flex; flex-direction:column; gap:14px; padding:16px 24px 12px; overflow:hidden;">
+
+      <!-- 1 · NEEDS YOUR ATTENTION -->
+      <div style="flex:none; background:#12161F; border:1px solid #1E242E; border-radius:16px; padding:20px 22px; display:flex; flex-direction:column; gap:10px;">
+        <div style="display:flex; align-items:center; gap:12px;">
+          <span style="font-size:15px; font-weight:500;">Needs your attention</span>
+          <span style="display:inline-flex; align-items:center; gap:7px; border-radius:6px; padding:3px 9px; background:rgba(124,107,245,0.16); color:#C3BAFF; font-size:12px;"><span style="width:6px; height:6px; border-radius:50%; background:#7C6BF5;"></span>3 items assigned to you</span>
+          <span style="flex:1;"></span>
+          <span style="font-size:12px; color:#6F7A8B;">as SOC Manager · m.rao</span>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:2px;">
+          <div style="display:grid; grid-template-columns:200px 108px 1fr 132px 96px; height:52px; align-items:center; gap:14px; padding:0 12px; border-radius:10px; background:rgba(255,107,112,0.06);" style-hover="background:rgba(255,107,112,0.1);">
+            <span style="display:flex; align-items:center; gap:10px;"><span style="width:7px; height:7px; border-radius:50%; background:#FF6B70; flex:none;"></span><span style="font-family:'IBM Plex Mono',monospace; font-size:13px; color:#FFFFFF;">alert-2026-0007</span></span>
+            <span style="display:inline-flex; align-items:center; gap:6px; border-radius:6px; padding:3px 9px; background:rgba(255,107,112,0.12); color:#FF6B70; font-size:12px; justify-self:start;">CRITICAL</span>
+            <span style="font-size:13px; color:#D2D8E2;">Awaiting your approval — restrict exposure + emergency patch</span>
+            <span style="display:flex; flex-direction:column; text-align:right;"><span style="font-family:'IBM Plex Mono',monospace; font-size:13px; color:#FF9F52;">02:47</span><span style="font-size:12px; color:#6F7A8B;">to SLA</span></span>
+            <button style="height:34px; border-radius:10px; background:#7C6BF5; color:#0B0E14; border:none; font-family:'IBM Plex Sans',sans-serif; font-size:13px; font-weight:600; cursor:pointer;" style-hover="background:#8F80F8;">Review</button>
+          </div>
+          <div style="display:grid; grid-template-columns:200px 108px 1fr 132px 96px; height:52px; align-items:center; gap:14px; padding:0 12px; border-radius:10px;" style-hover="background:#171C26;">
+            <span style="display:flex; align-items:center; gap:10px;"><span style="width:7px; height:7px; border-radius:50%; background:#FF6B70; flex:none;"></span><span style="font-family:'IBM Plex Mono',monospace; font-size:13px; color:#E9ECF2;">alert-2026-0004</span></span>
+            <span style="display:inline-flex; align-items:center; gap:6px; border-radius:6px; padding:3px 9px; background:rgba(255,107,112,0.12); color:#FF6B70; font-size:12px; justify-self:start;">CRITICAL</span>
+            <span style="font-size:13px; color:#D2D8E2;">Awaiting your approval</span>
+            <span style="display:flex; flex-direction:column; text-align:right;"><span style="font-family:'IBM Plex Mono',monospace; font-size:13px; color:#F0CB4D;">06:12</span><span style="font-size:12px; color:#6F7A8B;">to SLA</span></span>
+            <button style="height:34px; border-radius:10px; background:#171C26; color:#D2D8E2; border:none; font-family:'IBM Plex Sans',sans-serif; font-size:13px; cursor:pointer;" style-hover="background:#1C2230;">Review</button>
+          </div>
+          <div style="display:grid; grid-template-columns:200px 108px 1fr 132px 96px; height:52px; align-items:center; gap:14px; padding:0 12px; border-radius:10px;" style-hover="background:#171C26;">
+            <span style="display:flex; align-items:center; gap:10px;"><span style="width:7px; height:7px; border-radius:50%; background:#FF9F52; flex:none;"></span><span style="font-family:'IBM Plex Mono',monospace; font-size:13px; color:#E9ECF2;">TKT-2026-0011</span></span>
+            <span style="display:inline-flex; align-items:center; gap:6px; border-radius:6px; padding:3px 9px; background:rgba(255,159,82,0.12); color:#FF9F52; font-size:12px; justify-self:start;">SLA RISK</span>
+            <span style="font-size:13px; color:#D2D8E2;">SLA breach in 41m · Network Eng</span>
+            <span style="display:flex; flex-direction:column; text-align:right;"><span style="font-family:'IBM Plex Mono',monospace; font-size:13px; color:#FF9F52;">00:41</span><span style="font-size:12px; color:#6F7A8B;">to breach</span></span>
+            <button style="height:34px; border-radius:10px; background:#171C26; color:#D2D8E2; border:none; font-family:'IBM Plex Sans',sans-serif; font-size:13px; cursor:pointer;" style-hover="background:#1C2230;">Open</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2 · counter strip (demoted tier) -->
+      <div style="flex:none; display:grid; grid-template-columns:repeat(4,1fr); gap:12px;">
+        <div style="background:#12161F; border:1px solid #1E242E; border-radius:16px; padding:14px 18px; display:flex; align-items:center; justify-content:space-between; gap:12px;">
+          <span style="font-size:12px; color:#6F7A8B; letter-spacing:0.04em;">ACTIVE ALERTS</span>
+          <span style="display:flex; align-items:baseline; gap:8px;"><span style="font-family:'IBM Plex Mono',monospace; font-size:20px; font-weight:500; line-height:1;">7</span><span style="border-radius:6px; padding:2px 7px; background:rgba(255,138,142,0.13); color:#FF8A8E; font-family:'IBM Plex Mono',monospace; font-size:12px;">+2</span></span>
+        </div>
+        <div style="background:#12161F; border:1px solid #1E242E; border-radius:16px; padding:14px 18px; display:flex; align-items:center; justify-content:space-between; gap:12px;">
+          <span style="font-size:12px; color:#6F7A8B; letter-spacing:0.04em;">CRITICAL</span>
+          <span style="display:flex; align-items:baseline; gap:8px;"><span style="font-family:'IBM Plex Mono',monospace; font-size:20px; font-weight:500; line-height:1; color:#FF6B70;">2</span><span style="font-size:12px; color:#6F7A8B;">of 7</span></span>
+        </div>
+        <div style="background:#12161F; border:1px solid #1E242E; border-radius:16px; padding:14px 18px; display:flex; align-items:center; justify-content:space-between; gap:12px;">
+          <span style="font-size:12px; color:#6F7A8B; letter-spacing:0.04em;">NON-COMPLIANT ASSETS</span>
+          <span style="display:flex; align-items:baseline; gap:8px;"><span style="font-family:'IBM Plex Mono',monospace; font-size:20px; font-weight:500; line-height:1;">41</span><span style="font-size:12px; color:#6F7A8B;">of 288</span></span>
+        </div>
+        <div style="background:#12161F; border:1px solid #1E242E; border-radius:16px; padding:14px 18px; display:flex; align-items:center; justify-content:space-between; gap:12px;">
+          <span style="font-size:12px; color:#6F7A8B; letter-spacing:0.04em;">SLA AT RISK</span>
+          <span style="display:flex; align-items:baseline; gap:8px;"><span style="font-family:'IBM Plex Mono',monospace; font-size:20px; font-weight:500; line-height:1;">2</span><span style="border-radius:6px; padding:2px 7px; background:rgba(92,209,166,0.14); color:#5CD1A6; font-family:'IBM Plex Mono',monospace; font-size:12px;">0 breached</span></span>
+        </div>
+      </div>
+
+      <!-- 3 · charts -->
+      <div style="flex:none; display:grid; grid-template-columns:1.6fr 1fr; gap:14px;">
+        <div style="background:#12161F; border:1px solid #1E242E; border-radius:16px; padding:18px 20px; display:flex; flex-direction:column; gap:12px;">
+          <div style="display:flex; align-items:baseline; gap:10px;"><span style="font-size:15px; font-weight:500;">Alert trend</span><span style="font-size:12px; color:#6F7A8B;">14d · 12h buckets · alerts-2026</span></div>
+          <div style="position:relative; height:132px;">
+            <svg viewBox="0 0 620 132" preserveAspectRatio="none" style="width:100%; height:132px; display:block;">
+              <line x1="0" y1="32" x2="620" y2="32" stroke="#232A38" stroke-width="1" stroke-dasharray="4 6"></line>
+              <line x1="0" y1="66" x2="620" y2="66" stroke="#232A38" stroke-width="1" stroke-dasharray="4 6"></line>
+              <line x1="0" y1="100" x2="620" y2="100" stroke="#232A38" stroke-width="1" stroke-dasharray="4 6"></line>
+              <path d="M0,108 L44,101 L88,105 L133,86 L177,93 L221,77 L266,82 L310,63 L354,70 L398,52 L443,57 L487,40 L531,46 L575,24 L620,28 L620,132 L0,132 Z" fill="rgba(124,107,245,0.16)"></path>
+              <path d="M0,108 L44,101 L88,105 L133,86 L177,93 L221,77 L266,82 L310,63 L354,70 L398,52 L443,57 L487,40 L531,46 L575,24 L620,28" fill="none" stroke="#7C6BF5" stroke-width="2" stroke-linejoin="round"></path>
+              <circle cx="575" cy="24" r="4.5" fill="#0B0E14" stroke="#7C6BF5" stroke-width="2"></circle>
+            </svg>
+            <div style="position:absolute; left:70%; top:0; display:flex; align-items:center; gap:8px; border-radius:999px; padding:4px 11px; background:#232A38; box-shadow:0 0 0 1px #2C3444;"><span style="font-size:12px; color:#A2ABBA;">Aug 13</span><span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#FFFFFF;">7 alerts</span></div>
+          </div>
+          <div style="display:flex; justify-content:space-between; font-size:12px; color:#6F7A8B;"><span>Jul 31</span><span>Aug 04</span><span>Aug 08</span><span>Aug 13 · CIAD-2026-0007</span></div>
+        </div>
+        <div style="background:#12161F; border:1px solid #1E242E; border-radius:16px; padding:18px 20px; display:flex; flex-direction:column; gap:12px;">
+          <div style="display:flex; align-items:baseline; gap:10px;"><span style="font-size:15px; font-weight:500;">Risk distribution</span><span style="font-size:12px; color:#6F7A8B;">open · n=7</span></div>
+          <div style="display:flex; flex-direction:column; gap:11px;">
+            <div style="display:flex; align-items:center; gap:12px;"><span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#A2ABBA; width:58px;">90–100</span><span style="height:12px; border-radius:6px; width:30%; background:#FF6B70;"></span><span style="font-family:'IBM Plex Mono',monospace; font-size:13px; color:#E9ECF2;">2</span></div>
+            <div style="display:flex; align-items:center; gap:12px;"><span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#A2ABBA; width:58px;">70–89</span><span style="height:12px; border-radius:6px; width:44%; background:#FF9F52;"></span><span style="font-family:'IBM Plex Mono',monospace; font-size:13px; color:#E9ECF2;">3</span></div>
+            <div style="display:flex; align-items:center; gap:12px;"><span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#A2ABBA; width:58px;">40–69</span><span style="height:12px; border-radius:6px; width:16%; background:#F0CB4D;"></span><span style="font-family:'IBM Plex Mono',monospace; font-size:13px; color:#E9ECF2;">1</span></div>
+            <div style="display:flex; align-items:center; gap:12px;"><span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#A2ABBA; width:58px;">0–39</span><span style="height:12px; border-radius:6px; width:16%; background:#3A424F;"></span><span style="font-family:'IBM Plex Mono',monospace; font-size:13px; color:#E9ECF2;">1</span></div>
+          </div>
+          <div style="background:#171C26; border-radius:10px; padding:12px 14px; display:flex; align-items:center; justify-content:space-between;">
+            <span style="font-size:12px; color:#6F7A8B; letter-spacing:0.04em;">MEDIAN SCORE</span>
+            <span style="display:flex; align-items:baseline; gap:8px;"><span style="font-family:'IBM Plex Mono',monospace; font-size:20px; font-weight:500; line-height:1;">78</span><span style="font-size:12px; color:#6F7A8B;">rules v1.4.2</span></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4 · assets + activity -->
+      <div style="flex:1; min-height:0; display:grid; grid-template-columns:1.6fr 1fr; gap:14px;">
+        <div style="background:#12161F; border:1px solid #1E242E; border-radius:16px; padding:18px 20px; display:flex; flex-direction:column; gap:10px; min-height:0;">
+          <div style="display:flex; align-items:center; gap:12px; flex:none;">
+            <span style="font-size:15px; font-weight:500;">Top affected assets</span>
+            <span style="font-size:12px; color:#6F7A8B;">by open risk contribution</span>
+            <span style="flex:1;"></span>
+            <div style="display:flex; gap:2px; background:#171C26; border-radius:8px; padding:3px;">
+              <span style="border-radius:6px; padding:4px 10px; background:#232A38; color:#FFFFFF; font-size:12px;">Comfortable</span>
+              <span style="border-radius:6px; padding:4px 10px; color:#A2ABBA; font-size:12px;">Compact</span>
+            </div>
+          </div>
+          <div style="flex:1; min-height:0; overflow:auto;">
+            <div style="position:sticky; top:0; z-index:2; background:#12161F; display:grid; grid-template-columns:1.7fr 0.9fr 1fr 0.6fr; height:32px; align-items:center; padding:0 12px; font-size:12px; color:#6F7A8B; letter-spacing:0.04em;"><span>HOST / OWNER</span><span>ENVIRONMENT</span><span style="display:inline-flex; align-items:center; gap:6px; color:#A2ABBA;">CRITICALITY <span style="color:#9A8CFF;">↓</span></span><span style="text-align:right;">ALERTS</span></div>
+            <div style="display:grid; grid-template-columns:1.7fr 0.9fr 1fr 0.6fr; height:44px; align-items:center; padding:0 12px; border-radius:10px;" style-hover="background:#171C26;"><span style="display:flex; flex-direction:column;"><span style="font-family:'IBM Plex Mono',monospace; font-size:13px;">vpn-prod-mum-01</span><span style="font-size:12px; color:#6F7A8B;">Platform/SRE</span></span><span style="font-size:13px; color:#A2ABBA;">production</span><span><span style="display:inline-flex; align-items:center; gap:6px; border-radius:6px; padding:3px 9px; background:rgba(255,107,112,0.12); color:#FF6B70; font-size:12px;"><span style="width:6px; height:6px; border-radius:50%; background:#FF6B70;"></span>critical</span></span><span style="font-family:'IBM Plex Mono',monospace; font-size:13px; text-align:right;">3</span></div>
+            <div style="display:grid; grid-template-columns:1.7fr 0.9fr 1fr 0.6fr; height:44px; align-items:center; padding:0 12px; border-radius:10px;" style-hover="background:#171C26;"><span style="display:flex; flex-direction:column;"><span style="font-family:'IBM Plex Mono',monospace; font-size:13px;">vpn-prod-blr-01</span><span style="font-size:12px; color:#6F7A8B;">Platform/SRE</span></span><span style="font-size:13px; color:#A2ABBA;">production</span><span><span style="display:inline-flex; align-items:center; gap:6px; border-radius:6px; padding:3px 9px; background:rgba(255,159,82,0.12); color:#FF9F52; font-size:12px;"><span style="width:6px; height:6px; border-radius:50%; background:#FF9F52;"></span>high</span></span><span style="font-family:'IBM Plex Mono',monospace; font-size:13px; text-align:right;">2</span></div>
+            <div style="display:grid; grid-template-columns:1.7fr 0.9fr 1fr 0.6fr; height:44px; align-items:center; padding:0 12px; border-radius:10px;" style-hover="background:#171C26;"><span style="display:flex; flex-direction:column;"><span style="font-family:'IBM Plex Mono',monospace; font-size:13px;">pay-api-mum-04</span><span style="font-size:12px; color:#6F7A8B;">Payments</span></span><span style="font-size:13px; color:#A2ABBA;">production</span><span><span style="display:inline-flex; align-items:center; gap:6px; border-radius:6px; padding:3px 9px; background:rgba(255,159,82,0.12); color:#FF9F52; font-size:12px;"><span style="width:6px; height:6px; border-radius:50%; background:#FF9F52;"></span>high</span></span><span style="font-family:'IBM Plex Mono',monospace; font-size:13px; text-align:right;">2</span></div>
+            <div style="display:grid; grid-template-columns:1.7fr 0.9fr 1fr 0.6fr; height:44px; align-items:center; padding:0 12px; border-radius:10px;" style-hover="background:#171C26;"><span style="display:flex; flex-direction:column;"><span style="font-family:'IBM Plex Mono',monospace; font-size:13px;">vpn-prod-del-01</span><span style="font-size:12px; color:#6F7A8B;">Network Eng</span></span><span style="font-size:13px; color:#A2ABBA;">production</span><span><span style="display:inline-flex; align-items:center; gap:6px; border-radius:6px; padding:3px 9px; background:rgba(255,159,82,0.12); color:#FF9F52; font-size:12px;"><span style="width:6px; height:6px; border-radius:50%; background:#FF9F52;"></span>high</span></span><span style="font-family:'IBM Plex Mono',monospace; font-size:13px; text-align:right;">1</span></div>
+            <div style="display:grid; grid-template-columns:1.7fr 0.9fr 1fr 0.6fr; height:44px; align-items:center; padding:0 12px; border-radius:10px;" style-hover="background:#171C26;"><span style="display:flex; flex-direction:column;"><span style="font-family:'IBM Plex Mono',monospace; font-size:13px;">idp-core-blr-02</span><span style="font-size:12px; color:#6F7A8B;">IdentitySvc</span></span><span style="font-size:13px; color:#A2ABBA;">production</span><span><span style="display:inline-flex; align-items:center; gap:6px; border-radius:6px; padding:3px 9px; background:rgba(240,203,77,0.12); color:#F0CB4D; font-size:12px;"><span style="width:6px; height:6px; border-radius:50%; background:#F0CB4D;"></span>medium</span></span><span style="font-family:'IBM Plex Mono',monospace; font-size:13px; text-align:right;">1</span></div>
+            <div style="display:grid; grid-template-columns:1.7fr 0.9fr 1fr 0.6fr; height:44px; align-items:center; padding:0 12px; border-radius:10px;" style-hover="background:#171C26;"><span style="display:flex; flex-direction:column;"><span style="font-family:'IBM Plex Mono',monospace; font-size:13px;">vpn-stage-mum-01</span><span style="font-size:12px; color:#6F7A8B;">Platform/SRE</span></span><span style="font-size:13px; color:#A2ABBA;">staging</span><span><span style="display:inline-flex; align-items:center; gap:6px; border-radius:6px; padding:3px 9px; background:rgba(111,122,139,0.16); color:#9EA9B8; font-size:12px;"><span style="width:6px; height:6px; border-radius:50%; background:#6F7A8B;"></span>low</span></span><span style="font-family:'IBM Plex Mono',monospace; font-size:13px; text-align:right;">1</span></div>
+          </div>
+        </div>
+
+        <div style="background:#12161F; border:1px solid #1E242E; border-radius:16px; padding:18px 20px; display:flex; flex-direction:column; gap:10px; min-height:0;">
+          <div style="display:flex; align-items:center; gap:9px; flex:none;"><span style="font-size:15px; font-weight:500;">Live activity</span><span style="display:inline-flex; align-items:center; gap:6px; border-radius:6px; padding:2px 8px; background:rgba(124,107,245,0.14); color:#9A8CFF; font-size:12px;"><span style="width:6px; height:6px; border-radius:50%; background:#7C6BF5;"></span>tailing</span></div>
+          <div style="flex:1; min-height:0; overflow:auto; display:flex; flex-direction:column; gap:2px;">
+            <div style="border-radius:10px; padding:8px 12px; display:flex; flex-direction:column; gap:3px;" style-hover="background:#171C26;"><span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#6F7A8B;">09:53:41 · agent</span><span style="font-size:13px; color:#E9ECF2;">Recommendation drafted for <span style="font-family:'IBM Plex Mono',monospace;">alert-2026-0007</span> — approval required</span></div>
+            <div style="border-radius:10px; padding:8px 12px; display:flex; flex-direction:column; gap:3px;" style-hover="background:#171C26;"><span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#6F7A8B;">09:53:39 · rules</span><span style="font-size:13px; color:#E9ECF2;">Risk assessed <span style="font-family:'IBM Plex Mono',monospace; color:#FF6B70;">94/100</span> · rule pack v1.4.2</span></div>
+            <div style="border-radius:10px; padding:8px 12px; display:flex; flex-direction:column; gap:3px;" style-hover="background:#171C26;"><span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#6F7A8B;">09:53:36 · correlation</span><span style="font-size:13px; color:#E9ECF2;">23 installs matched across 17 hosts · <span style="font-family:'IBM Plex Mono',monospace;">corr-8f7a2c1e</span></span></div>
+            <div style="border-radius:10px; padding:8px 12px; display:flex; flex-direction:column; gap:3px;" style-hover="background:#171C26;"><span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#6F7A8B;">09:41:02 · ticket</span><span style="font-size:13px; color:#E9ECF2;"><span style="font-family:'IBM Plex Mono',monospace;">TKT-2026-0012</span> moved to IN_PROGRESS by r.iyer</span></div>
+            <div style="border-radius:10px; padding:8px 12px; display:flex; flex-direction:column; gap:3px;" style-hover="background:#171C26;"><span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#6F7A8B;">09:38:55 · audit</span><span style="font-size:13px; color:#E9ECF2;">Chain block <span style="font-family:'IBM Plex Mono',monospace;">#8,441</span> sealed <span style="font-family:'IBM Plex Mono',monospace; color:#6F7A8B;">sha256:9c14ab…07f2</span></span></div>
+            <div style="border-radius:10px; padding:8px 12px; display:flex; flex-direction:column; gap:3px;" style-hover="background:#171C26;"><span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#6F7A8B;">09:30:14 · ingest</span><span style="font-size:13px; color:#E9ECF2;">CERT-In advisory <span style="font-family:'IBM Plex Mono',monospace;">CIAD-2026-0007</span> ingested</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- status bar -->
+    <div style="flex:none; height:34px; display:flex; align-items:center; padding:0 24px 8px; gap:18px; font-family:'IBM Plex Mono',monospace; font-size:12px; color:#6F7A8B;">
+      <span style="display:inline-flex; align-items:center; gap:7px;"><span style="width:6px; height:6px; border-radius:50%; background:#5CD1A6;"></span>Elasticsearch connected · es-soc-mum · 4 indices</span>
+      <span>LLM claude-sonnet-4.6 · explanation only</span>
+      <span>last sync 14s ago</span>
+      <span>ingest lag 2.1s</span>
+      <span style="flex:1;"></span>
+      <span>audit chain #8,441 · verified</span>
+    </div>
+
+    <!-- assistant FAB -->
+    <div style="position:absolute; right:24px; bottom:24px; z-index:30; display:flex; align-items:center; gap:10px;">
+      <span style="border-radius:8px; padding:7px 11px; background:#232A38; color:#E9ECF2; font-size:12px; box-shadow:0 0 0 1px #2C3444;">Analyst · <span style="font-family:'IBM Plex Mono',monospace;">⌘J</span></span>
+      <span style="position:relative; width:52px; height:52px; border-radius:18px; background:#7C6BF5; box-shadow:0 0 0 6px rgba(124,107,245,0.14), 0 10px 26px rgba(124,107,245,0.28); display:inline-flex; align-items:center; justify-content:center;">
+        <span style="width:18px; height:18px; border-radius:6px; background:rgba(11,14,20,0.85);"></span>
+        <span style="position:absolute; top:-4px; right:-4px; min-width:20px; height:20px; border-radius:999px; background:#FF6B70; color:#0B0E14; font-family:'IBM Plex Mono',monospace; font-size:12px; display:inline-flex; align-items:center; justify-content:center; padding:0 6px;">1</span>
+      </span>
+    </div>
+  </div>
+</section>
+<!-- ========================= SCREEN 03 · ALERT DETAIL ========================= -->
+<section data-screen-label="03 Alert Detail" style="display:flex; flex-direction:column; gap:14px;">
+  <div style="display:flex; align-items:baseline; gap:12px;">
+    <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:0.1em; color:#6F7A8B;">SCREEN 03</span>
+    <span style="font-size:13px; color:#A2ABBA;">Alert detail — alert-2026-0007 · one focal number, sticky action bar, collapsed context header</span>
+  </div>
+
+  <div style="width:1440px; position:relative; background:#0B0E14; background-image:radial-gradient(820px 460px at 2% -4%, rgba(124,107,245,0.10), transparent 70%), radial-gradient(760px 460px at 99% 102%, rgba(124,107,245,0.08), transparent 70%); display:flex; flex-direction:column;">
+
+    <!-- pinned top bar · Alerts stays active on detail -->
+    <div style="position:sticky; top:0; z-index:20; height:60px; flex:none; display:flex; align-items:center; padding:0 24px; gap:16px; background:#0D1119; border-bottom:1px solid #1E242E;">
+      <div style="display:flex; align-items:center; gap:10px;">
+        <span style="width:24px; height:24px; border-radius:8px; background:#7C6BF5; display:inline-flex; align-items:center; justify-content:center;"><span style="width:8px; height:8px; border-radius:50%; background:#0B0E14;"></span></span>
+        <span style="font-size:15px; font-weight:600; letter-spacing:-0.01em;">Sentinel-In</span>
+        <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#6F7A8B;">v0.9.3</span>
+      </div>
+      <div style="flex:1; display:flex; justify-content:center;">
+        <div style="display:flex; align-items:center; gap:4px; background:#12161F; border:1px solid #1E242E; border-radius:14px; padding:5px;">
+          <span style="border-radius:10px; padding:8px 16px; color:#A2ABBA; font-size:13px;" style-hover="color:#FFFFFF;">Dashboard</span>
+          <span style="display:inline-flex; align-items:center; gap:8px; border-radius:10px; padding:8px 16px; background:#1E2532; color:#FFFFFF; font-size:13px; font-weight:500; box-shadow:0 0 0 1px #2C3444;">Alerts <span style="border-radius:999px; padding:1px 7px; background:rgba(255,107,112,0.14); color:#FF6B70; font-family:'IBM Plex Mono',monospace; font-size:12px;">7</span></span>
+          <span style="border-radius:10px; padding:8px 16px; color:#A2ABBA; font-size:13px;" style-hover="color:#FFFFFF;">Infrastructure</span>
+          <span style="display:inline-flex; align-items:center; gap:8px; border-radius:10px; padding:8px 16px; color:#A2ABBA; font-size:13px;" style-hover="color:#FFFFFF;">Tickets <span style="border-radius:999px; padding:1px 7px; background:#1E242E; color:#D2D8E2; font-family:'IBM Plex Mono',monospace; font-size:12px;">12</span></span>
+          <span style="border-radius:10px; padding:8px 16px; color:#A2ABBA; font-size:13px;" style-hover="color:#FFFFFF;">Reports</span>
+          <span style="border-radius:10px; padding:8px 14px; color:#6F7A8B; font-size:13px;" style-hover="color:#FFFFFF;">More ▾</span>
+        </div>
+      </div>
+      <div style="display:flex; align-items:center; gap:10px;">
+        <div style="display:flex; align-items:center; gap:9px; height:36px; border-radius:10px; background:#12161F; border:1px solid #1E242E; padding:0 12px;">
+          <span style="color:#6F7A8B; font-size:13px;">⌕</span><span style="font-size:13px; color:#6F7A8B;">Search entity</span>
+          <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#A2ABBA; background:#171C26; border-radius:6px; padding:2px 6px;">⌘K</span>
+        </div>
+        <span style="width:36px; height:36px; border-radius:10px; background:#12161F; border:1px solid #1E242E; display:inline-flex; align-items:center; justify-content:center; position:relative; color:#A2ABBA; font-size:13px;">◔<span style="position:absolute; top:8px; right:9px; width:6px; height:6px; border-radius:50%; background:#FF6B70;"></span></span>
+        <div style="display:flex; align-items:center; gap:9px; height:36px; border-radius:10px; background:#12161F; border:1px solid #1E242E; padding:0 12px;"><span style="font-size:13px; color:#D2D8E2;">SOC Manager</span><span style="font-size:12px; color:#6F7A8B;">▾</span></div>
+        <span style="width:36px; height:36px; border-radius:10px; background:rgba(124,107,245,0.16); color:#C3BAFF; display:inline-flex; align-items:center; justify-content:center; font-family:'IBM Plex Mono',monospace; font-size:13px;">MR</span>
+      </div>
+    </div>
+
+    <!-- collapsed context header · inset variant -->
+    <div style="padding:14px 24px 0; display:flex; flex-direction:column; gap:8px;">
+      <span style="font-size:12px; color:#6F7A8B; letter-spacing:0.04em;">COLLAPSED CONTEXT HEADER — appears under the top bar once the alert header scrolls past</span>
+      <div style="height:52px; display:flex; align-items:center; gap:14px; padding:0 18px; background:#0D1119; border:1px solid #1E242E; border-radius:12px;">
+        <span style="width:8px; height:8px; border-radius:50%; background:#FF6B70; flex:none;"></span>
+        <span style="font-size:12px; color:#FF6B70; letter-spacing:0.04em;">CRITICAL</span>
+        <span style="font-family:'IBM Plex Mono',monospace; font-size:13px; color:#E9ECF2;">alert-2026-0007</span>
+        <span style="font-size:13px; color:#A2ABBA; flex:1; min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">Remote code execution in Acme VPN Gateway &lt; 5.4.2</span>
+        <span style="display:flex; align-items:baseline; gap:7px;"><span style="font-size:12px; color:#6F7A8B;">risk</span><span style="font-family:'IBM Plex Mono',monospace; font-size:15px; color:#FF6B70;">94</span></span>
+        <button style="height:34px; padding:0 16px; border-radius:10px; background:#7C6BF5; color:#0B0E14; border:none; font-family:'IBM Plex Sans',sans-serif; font-size:13px; font-weight:600; cursor:pointer;" style-hover="background:#8F80F8;">Approve</button>
+        <button style="height:34px; padding:0 14px; border-radius:10px; background:rgba(255,107,112,0.12); color:#FF8A8E; border:none; font-family:'IBM Plex Sans',sans-serif; font-size:13px; cursor:pointer;" style-hover="background:rgba(255,107,112,0.2);">Reject</button>
+      </div>
+    </div>
+
+    <div style="display:flex; gap:16px; padding:14px 24px 24px; align-items:flex-start;">
+      <!-- MAIN COLUMN -->
+      <div style="flex:1; min-width:0; display:flex; flex-direction:column; gap:14px;">
+
+        <!-- header card -->
+        <div style="background:#12161F; border:1px solid #1E242E; border-radius:16px; padding:22px 24px; display:flex; flex-direction:column; gap:16px;">
+          <div style="display:flex; align-items:center; gap:10px; font-size:12px; color:#6F7A8B;">
+            <span>Alerts</span><span>/</span><span style="font-family:'IBM Plex Mono',monospace; color:#A2ABBA;">alert-2026-0007</span>
+            <span style="flex:1;"></span>
+            <span style="font-family:'IBM Plex Mono',monospace;">ingested 2026-08-13 09:30:14 IST</span>
+          </div>
+
+          <div style="display:flex; align-items:flex-start; gap:24px;">
+            <div style="flex:1; min-width:0; display:flex; flex-direction:column; gap:12px;">
+              <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap;">
+                <span style="display:inline-flex; align-items:center; gap:7px; border-radius:6px; padding:5px 11px; background:rgba(255,107,112,0.12); color:#FF6B70; font-size:12px; letter-spacing:0.04em;"><span style="width:6px; height:6px; border-radius:50%; background:#FF6B70;"></span>CRITICAL</span>
+                <span style="display:inline-flex; align-items:center; gap:7px; border-radius:6px; padding:5px 11px; background:rgba(124,107,245,0.18); color:#C3BAFF; font-family:'IBM Plex Mono',monospace; font-size:12px;"><span style="width:6px; height:6px; border-radius:50%; background:#7C6BF5;"></span>PENDING_APPROVAL</span>
+                <span style="display:inline-flex; align-items:center; gap:8px; border-radius:8px; padding:5px 11px; background:#171C26; font-family:'IBM Plex Mono',monospace; font-size:13px; color:#E9ECF2;">alert-2026-0007 <span style="color:#6F7A8B;">⧉</span></span>
+              </div>
+              <span style="font-size:24px; font-weight:600; letter-spacing:-0.02em; line-height:1.3; text-wrap:pretty;">Remote code execution in Acme VPN Gateway &lt; 5.4.2</span>
+              <div style="display:flex; flex-wrap:wrap; gap:8px;">
+                <span style="display:inline-flex; align-items:center; gap:8px; border-radius:8px; padding:6px 11px; background:#171C26; font-size:12px; color:#6F7A8B;" style-hover="background:#1C2230;">cve <span style="font-family:'IBM Plex Mono',monospace; font-size:13px; color:#E9ECF2;">CVE-2026-41007</span></span>
+                <span style="display:inline-flex; align-items:center; gap:8px; border-radius:8px; padding:6px 11px; background:#171C26; font-size:12px; color:#6F7A8B;" style-hover="background:#1C2230;">advisory <span style="font-family:'IBM Plex Mono',monospace; font-size:13px; color:#E9ECF2;">CIAD-2026-0007</span></span>
+                <span style="display:inline-flex; align-items:center; gap:8px; border-radius:8px; padding:6px 11px; background:#171C26; font-size:12px; color:#6F7A8B;" style-hover="background:#1C2230;">correlation <span style="font-family:'IBM Plex Mono',monospace; font-size:13px; color:#E9ECF2;">corr-8f7a2c1e</span></span>
+                <span style="display:inline-flex; align-items:center; gap:8px; border-radius:8px; padding:6px 11px; background:#171C26; font-size:12px; color:#6F7A8B;" style-hover="background:#1C2230;">ticket <span style="font-family:'IBM Plex Mono',monospace; font-size:13px; color:#E9ECF2;">TKT-2026-0007</span></span>
+                <span style="display:inline-flex; align-items:center; gap:8px; border-radius:8px; padding:6px 11px; background:#171C26; font-size:12px; color:#6F7A8B;">cvss <span style="font-family:'IBM Plex Mono',monospace; font-size:13px; color:#E9ECF2;">9.8 AV:N/AC:L/PR:N/UI:N</span></span>
+              </div>
+            </div>
+
+            <div style="flex:none; width:220px; background:#171C26; border-radius:12px; padding:16px; display:flex; align-items:flex-end; justify-content:space-between; gap:12px;">
+              <div style="display:flex; flex-direction:column; gap:8px;">
+                <span style="font-size:12px; color:#6F7A8B; letter-spacing:0.04em;">RISK SCORE</span>
+                <span style="font-family:'IBM Plex Mono',monospace; font-size:44px; font-weight:500; line-height:1; letter-spacing:-0.03em; color:#FF6B70;">94</span>
+              </div>
+              <div style="display:flex; flex-direction:column; gap:6px; align-items:flex-end;">
+                <span style="font-family:'IBM Plex Mono',monospace; font-size:13px; color:#6F7A8B;">/100</span>
+                <span style="font-size:12px; color:#6F7A8B; text-align:right;">rules v1.4.2<br>deterministic</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- impact strip · horizontal four-up + inline blast radius -->
+          <div style="background:#171C26; border-radius:10px; padding:14px 18px; display:flex; align-items:center; gap:18px;">
+            <div style="display:flex; align-items:baseline; gap:9px;"><span style="font-family:'IBM Plex Mono',monospace; font-size:20px; font-weight:500; line-height:1;">23</span><span style="font-size:12px; color:#6F7A8B;">vulnerable installs</span></div>
+            <span style="width:1px; height:20px; background:#232A38;"></span>
+            <div style="display:flex; align-items:baseline; gap:9px;"><span style="font-family:'IBM Plex Mono',monospace; font-size:20px; font-weight:500; line-height:1;">17</span><span style="font-size:12px; color:#6F7A8B;">unique hosts</span></div>
+            <span style="width:1px; height:20px; background:#232A38;"></span>
+            <div style="display:flex; align-items:baseline; gap:9px;"><span style="font-family:'IBM Plex Mono',monospace; font-size:20px; font-weight:500; line-height:1;">5</span><span style="font-size:12px; color:#6F7A8B;">production</span></div>
+            <span style="width:1px; height:20px; background:#232A38;"></span>
+            <div style="display:flex; align-items:baseline; gap:9px;"><span style="font-family:'IBM Plex Mono',monospace; font-size:20px; font-weight:500; line-height:1; color:#FF6B70;">2</span><span style="font-size:12px; color:#6F7A8B;">internet-exposed</span></div>
+            <span style="flex:1;"></span>
+            <span style="font-size:12px; color:#6F7A8B;">blast radius</span>
+            <div style="display:flex; gap:3px; align-items:flex-end; height:22px;">
+              <span style="width:8px; height:22px; border-radius:3px; background:#FF6B70;"></span><span style="width:8px; height:22px; border-radius:3px; background:#FF6B70;"></span>
+              <span style="width:8px; height:16px; border-radius:3px; background:#FF9F52;"></span><span style="width:8px; height:16px; border-radius:3px; background:#FF9F52;"></span><span style="width:8px; height:16px; border-radius:3px; background:#FF9F52;"></span>
+              <span style="width:8px; height:10px; border-radius:3px; background:#2A313D;"></span><span style="width:8px; height:10px; border-radius:3px; background:#2A313D;"></span><span style="width:8px; height:10px; border-radius:3px; background:#2A313D;"></span><span style="width:8px; height:10px; border-radius:3px; background:#2A313D;"></span><span style="width:8px; height:10px; border-radius:3px; background:#2A313D;"></span><span style="width:8px; height:10px; border-radius:3px; background:#2A313D;"></span><span style="width:8px; height:10px; border-radius:3px; background:#2A313D;"></span><span style="width:8px; height:10px; border-radius:3px; background:#2A313D;"></span><span style="width:8px; height:10px; border-radius:3px; background:#2A313D;"></span><span style="width:8px; height:10px; border-radius:3px; background:#2A313D;"></span><span style="width:8px; height:10px; border-radius:3px; background:#2A313D;"></span><span style="width:8px; height:10px; border-radius:3px; background:#2A313D;"></span>
+            </div>
+            <span style="font-size:12px; color:#6F7A8B;">2 exposed · 3 prod internal · 12 non-prod</span>
+          </div>
+        </div>
+
+        <!-- RISK BREAKDOWN -->
+        <div style="background:#12161F; border:1px solid #1E242E; border-radius:16px; padding:22px 24px; display:flex; flex-direction:column; gap:18px;">
+          <div style="display:flex; align-items:center; gap:12px;">
+            <span style="font-size:15px; font-weight:500;">Risk breakdown</span>
+            <span style="font-size:12px; color:#6F7A8B;">additive · rule pack v1.4.2 · no model input</span>
+            <span style="flex:1;"></span>
+            <span style="display:inline-flex; align-items:center; gap:7px; border-radius:6px; padding:4px 10px; background:rgba(124,107,245,0.14); color:#9A8CFF; font-size:12px;">deterministic · reproducible</span>
+            <span style="font-size:13px; color:#9A8CFF;">View rule definitions</span>
+          </div>
+
+          <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap; font-family:'IBM Plex Mono',monospace; font-size:13px; color:#A2ABBA;">
+            <span>severity</span><span style="color:#7C6BF5;">+</span><span>asset_criticality</span><span style="color:#7C6BF5;">+</span><span>exposure</span><span style="color:#7C6BF5;">+</span><span>active_evidence</span><span style="color:#7C6BF5;">+</span><span>recurrence</span><span style="color:#7C6BF5;">−</span><span>compensating_controls</span><span style="color:#6F7A8B;">=</span><span style="color:#FF6B70;">94</span>
+          </div>
+
+          <div style="background:#171C26; border-radius:12px; padding:22px 20px 18px; display:flex; gap:16px;">
+            <div style="width:34px; flex:none; height:288px; display:flex; flex-direction:column; justify-content:space-between; align-items:flex-end; font-family:'IBM Plex Mono',monospace; font-size:12px; color:#6F7A8B; padding-bottom:52px;">
+              <span>100</span><span>75</span><span>50</span><span>25</span><span>0</span>
+            </div>
+            <div style="flex:1; min-width:0; display:flex; flex-direction:column;">
+              <div style="position:relative; height:236px;">
+                <span style="position:absolute; left:0; right:0; top:0; height:1px; border-top:1px dashed #232A38;"></span>
+                <span style="position:absolute; left:0; right:0; top:59px; height:1px; border-top:1px dashed #232A38;"></span>
+                <span style="position:absolute; left:0; right:0; top:118px; height:1px; border-top:1px dashed #232A38;"></span>
+                <span style="position:absolute; left:0; right:0; top:177px; height:1px; border-top:1px dashed #232A38;"></span>
+                <span style="position:absolute; left:0; right:0; bottom:0; height:1px; border-top:1px dashed #2C3444;"></span>
+                <span style="position:absolute; left:0; right:0; bottom:200.6px; height:1px; border-top:1px dashed rgba(255,107,112,0.5);"></span>
+                <span style="position:absolute; left:0; bottom:204px; border-radius:6px; padding:2px 8px; background:rgba(255,107,112,0.12); color:#FF6B70; font-size:12px;">CRITICAL band ≥ 85</span>
+
+                <div style="position:absolute; inset:0; display:grid; grid-template-columns:repeat(7,1fr); gap:14px; align-items:end;">
+                  <div style="position:relative; height:100%;"><span style="position:absolute; left:0; right:0; bottom:0%; height:34%; border-radius:6px; background:#7C6BF5; display:flex; align-items:flex-start; justify-content:center; padding-top:8px; font-family:'IBM Plex Mono',monospace; font-size:13px; color:#0B0E14;">+34</span></div>
+                  <div style="position:relative; height:100%;"><span style="position:absolute; left:0; right:0; bottom:34%; height:22%; border-radius:6px; background:#6F5FE0; display:flex; align-items:flex-start; justify-content:center; padding-top:8px; font-family:'IBM Plex Mono',monospace; font-size:13px; color:#0B0E14;">+22</span></div>
+                  <div style="position:relative; height:100%;"><span style="position:absolute; left:0; right:0; bottom:56%; height:18%; border-radius:6px; background:#6153CC; display:flex; align-items:flex-start; justify-content:center; padding-top:8px; font-family:'IBM Plex Mono',monospace; font-size:13px; color:#EDEBFF;">+18</span></div>
+                  <div style="position:relative; height:100%;"><span style="position:absolute; left:0; right:0; bottom:74%; height:14%; border-radius:6px; background:#5347B0; display:flex; align-items:flex-start; justify-content:center; padding-top:8px; font-family:'IBM Plex Mono',monospace; font-size:13px; color:#EDEBFF;">+14</span></div>
+                  <div style="position:relative; height:100%;"><span style="position:absolute; left:0; right:0; bottom:88%; height:8%; border-radius:6px; background:#463C94; display:flex; align-items:flex-start; justify-content:center; padding-top:5px; font-family:'IBM Plex Mono',monospace; font-size:12px; color:#EDEBFF;">+8</span></div>
+                  <div style="position:relative; height:100%;"><span style="position:absolute; left:0; right:0; bottom:94%; height:2%; border-radius:4px; background:#3A424F;"></span><span style="position:absolute; left:0; right:0; bottom:calc(94% + 12px); text-align:center; font-family:'IBM Plex Mono',monospace; font-size:12px; color:#A2ABBA;">−2</span></div>
+                  <div style="position:relative; height:100%;"><span style="position:absolute; left:0; right:0; bottom:0%; height:94%; border-radius:6px; background:rgba(255,107,112,0.16); box-shadow:inset 0 0 0 1px rgba(255,107,112,0.45); display:flex; align-items:flex-start; justify-content:center; padding-top:8px; font-family:'IBM Plex Mono',monospace; font-size:15px; color:#FF6B70;">94</span></div>
+                </div>
+              </div>
+              <div style="display:grid; grid-template-columns:repeat(7,1fr); gap:14px; padding-top:12px;">
+                <span style="font-size:12px; color:#A2ABBA; text-align:center; line-height:1.35;">Severity</span>
+                <span style="font-size:12px; color:#A2ABBA; text-align:center; line-height:1.35;">Asset<br>criticality</span>
+                <span style="font-size:12px; color:#A2ABBA; text-align:center; line-height:1.35;">Exposure</span>
+                <span style="font-size:12px; color:#A2ABBA; text-align:center; line-height:1.35;">Active<br>evidence</span>
+                <span style="font-size:12px; color:#A2ABBA; text-align:center; line-height:1.35;">Recurrence</span>
+                <span style="font-size:12px; color:#A2ABBA; text-align:center; line-height:1.35;">Compensating<br>controls</span>
+                <span style="font-size:12px; color:#FF6B70; text-align:center; line-height:1.35;">Total<br>risk score</span>
+              </div>
+            </div>
+          </div>
+
+          <div style="display:flex; flex-direction:column; gap:2px;">
+            <div style="display:grid; grid-template-columns:210px 74px 1fr 168px; height:30px; align-items:center; padding:0 14px; font-size:12px; color:#6F7A8B; letter-spacing:0.04em;"><span>FACTOR</span><span style="text-align:right;">POINTS</span><span style="padding-left:18px;">JUSTIFICATION</span><span>SOURCE</span></div>
+
+            <div style="display:grid; grid-template-columns:210px 74px 1fr 168px; min-height:44px; align-items:center; padding:10px 14px; border-radius:10px;" style-hover="background:#171C26;">
+              <span style="display:flex; align-items:center; gap:10px; font-size:13px;"><span style="width:10px; height:10px; border-radius:3px; background:#7C6BF5;"></span>Severity</span>
+              <span style="font-family:'IBM Plex Mono',monospace; font-size:13px; color:#FFFFFF; text-align:right;">+34</span>
+              <span style="font-size:13px; color:#A2ABBA; padding-left:18px; line-height:1.5;">CVSS 9.8 network-reachable RCE, no privileges required — severity band CRITICAL (max 35).</span>
+              <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#6F7A8B;">CIAD-2026-0007</span>
+            </div>
+            <div style="display:grid; grid-template-columns:210px 74px 1fr 168px; min-height:44px; align-items:center; padding:10px 14px; border-radius:10px;" style-hover="background:#171C26;">
+              <span style="display:flex; align-items:center; gap:10px; font-size:13px;"><span style="width:10px; height:10px; border-radius:3px; background:#6F5FE0;"></span>Asset criticality</span>
+              <span style="font-family:'IBM Plex Mono',monospace; font-size:13px; color:#FFFFFF; text-align:right;">+22</span>
+              <span style="font-size:13px; color:#A2ABBA; padding-left:18px; line-height:1.5;">5 production hosts affected; <span style="font-family:'IBM Plex Mono',monospace; color:#E9ECF2;">vpn-prod-mum-01</span> is tier-0 and fronts all remote employee access.</span>
+              <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#6F7A8B;">assets-inventory</span>
+            </div>
+            <div style="display:grid; grid-template-columns:210px 74px 1fr 168px; min-height:44px; align-items:center; padding:10px 14px; border-radius:10px;" style-hover="background:#171C26;">
+              <span style="display:flex; align-items:center; gap:10px; font-size:13px;"><span style="width:10px; height:10px; border-radius:3px; background:#6153CC;"></span>Exposure</span>
+              <span style="font-family:'IBM Plex Mono',monospace; font-size:13px; color:#FFFFFF; text-align:right;">+18</span>
+              <span style="font-size:13px; color:#A2ABBA; padding-left:18px; line-height:1.5;">2 of 17 hosts terminate sessions on public IPs (<span style="font-family:'IBM Plex Mono',monospace; color:#E9ECF2;">103.21.244.17</span>, <span style="font-family:'IBM Plex Mono',monospace; color:#E9ECF2;">103.21.244.19</span>) — exploit path needs no foothold.</span>
+              <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#6F7A8B;">edge-netflow-2026</span>
+            </div>
+            <div style="display:grid; grid-template-columns:210px 74px 1fr 168px; min-height:44px; align-items:center; padding:10px 14px; border-radius:10px;" style-hover="background:#171C26;">
+              <span style="display:flex; align-items:center; gap:10px; font-size:13px;"><span style="width:10px; height:10px; border-radius:3px; background:#5347B0;"></span>Active evidence</span>
+              <span style="font-family:'IBM Plex Mono',monospace; font-size:13px; color:#FFFFFF; text-align:right;">+14</span>
+              <span style="font-size:13px; color:#A2ABBA; padding-left:18px; line-height:1.5;">41 failed then 1 successful VPN auth for <span style="font-family:'IBM Plex Mono',monospace; color:#E9ECF2;">svc_vpn_bind</span> within 4m on the exposed host — matches the advisory pre-exploit pattern.</span>
+              <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#6F7A8B;">AUTH-77f31c</span>
+            </div>
+            <div style="display:grid; grid-template-columns:210px 74px 1fr 168px; min-height:44px; align-items:center; padding:10px 14px; border-radius:10px;" style-hover="background:#171C26;">
+              <span style="display:flex; align-items:center; gap:10px; font-size:13px;"><span style="width:10px; height:10px; border-radius:3px; background:#463C94;"></span>Recurrence</span>
+              <span style="font-family:'IBM Plex Mono',monospace; font-size:13px; color:#FFFFFF; text-align:right;">+8</span>
+              <span style="font-size:13px; color:#A2ABBA; padding-left:18px; line-height:1.5;">Same package family previously flagged in <span style="font-family:'IBM Plex Mono',monospace; color:#E9ECF2;">INC-2025-0412</span>; patch never completed on 3 of 6 hosts.</span>
+              <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#6F7A8B;">INC-2025-0412</span>
+            </div>
+            <div style="display:grid; grid-template-columns:210px 74px 1fr 168px; min-height:44px; align-items:center; padding:10px 14px; border-radius:10px;" style-hover="background:#171C26;">
+              <span style="display:flex; align-items:center; gap:10px; font-size:13px;"><span style="width:10px; height:10px; border-radius:3px; background:#3A424F;"></span>Compensating controls</span>
+              <span style="font-family:'IBM Plex Mono',monospace; font-size:13px; color:#A2ABBA; text-align:right;">−2</span>
+              <span style="font-size:13px; color:#A2ABBA; padding-left:18px; line-height:1.5;">WAF rule <span style="font-family:'IBM Plex Mono',monospace; color:#E9ECF2;">waf-vpn-0091</span> blocks one known payload shape; MFA enforced for interactive logins only.</span>
+              <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#6F7A8B;">controls-registry</span>
+            </div>
+            <div style="display:grid; grid-template-columns:210px 74px 1fr 168px; min-height:44px; align-items:center; padding:10px 14px; border-radius:10px; background:#171C26;">
+              <span style="font-size:13px; color:#E9ECF2;">Total</span>
+              <span style="font-family:'IBM Plex Mono',monospace; font-size:15px; color:#FF6B70; text-align:right;">94</span>
+              <span style="font-size:12px; color:#6F7A8B; padding-left:18px; line-height:1.5;">Recomputed on every evidence change · last computed 09:53:39 IST · reproducible from source records.</span>
+              <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#6F7A8B;">corr-8f7a2c1e</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- AFFECTED ASSETS -->
+        <div style="background:#12161F; border:1px solid #1E242E; border-radius:16px; padding:22px 24px; display:flex; flex-direction:column; gap:12px;">
+          <div style="display:flex; align-items:center; gap:12px;">
+            <span style="font-size:15px; font-weight:500;">Affected assets</span>
+            <span style="font-size:12px; color:#6F7A8B;">17 hosts · 23 installs · 12 rows shown, list scrolls</span>
+            <span style="flex:1;"></span>
+            <div style="display:flex; gap:2px; background:#171C26; border-radius:8px; padding:3px;">
+              <span style="border-radius:6px; padding:4px 10px; background:#232A38; color:#FFFFFF; font-size:12px;">Comfortable</span>
+              <span style="border-radius:6px; padding:4px 10px; color:#A2ABBA; font-size:12px;">Compact</span>
+            </div>
+            <span style="font-size:13px; color:#9A8CFF;">Open all 17 in Infrastructure</span>
+          </div>
+
+          <div style="max-height:566px; overflow:auto; display:flex; flex-direction:column; gap:2px;">
+            <div style="position:sticky; top:0; z-index:2; background:#12161F; display:grid; grid-template-columns:1.7fr 0.9fr 1fr 1.2fr 0.8fr; height:32px; align-items:center; padding:0 14px; font-size:12px; color:#6F7A8B; letter-spacing:0.04em;"><span>HOST / OWNER</span><span>ENVIRONMENT</span><span style="display:inline-flex; align-items:center; gap:6px; color:#A2ABBA;">CRITICALITY <span style="color:#9A8CFF;">↓</span></span><span>EXPOSURE</span><span style="text-align:right;">VERSION</span></div>
+
+            <div style="display:grid; grid-template-columns:1.7fr 0.9fr 1fr 1.2fr 0.8fr; height:44px; align-items:center; padding:0 14px; border-radius:10px; background:rgba(124,107,245,0.12);">
+              <span style="display:flex; flex-direction:column;"><span style="display:flex; align-items:center; gap:8px;"><span style="font-family:'IBM Plex Mono',monospace; font-size:13px; color:#FFFFFF;">vpn-prod-mum-01</span><span style="border-radius:6px; padding:1px 7px; background:rgba(255,107,112,0.14); color:#FF6B70; font-size:12px;">suspicious auth</span></span><span style="font-size:12px; color:#9A8CFF;">Platform/SRE</span></span>
+              <span style="font-size:13px; color:#C3BAFF;">production</span>
+              <span><span style="display:inline-flex; align-items:center; gap:6px; border-radius:6px; padding:3px 9px; background:rgba(255,107,112,0.12); color:#FF6B70; font-size:12px;"><span style="width:6px; height:6px; border-radius:50%; background:#FF6B70;"></span>critical</span></span>
+              <span style="font-size:13px; color:#FF6B70;">internet-facing</span>
+              <span style="font-family:'IBM Plex Mono',monospace; font-size:13px; color:#C3BAFF; text-align:right;">5.3.1</span>
+            </div>
+            <div style="display:grid; grid-template-columns:1.7fr 0.9fr 1fr 1.2fr 0.8fr; height:44px; align-items:center; padding:0 14px; border-radius:10px;" style-hover="background:#171C26;">
+              <span style="display:flex; flex-direction:column;"><span style="font-family:'IBM Plex Mono',monospace; font-size:13px;">vpn-prod-mum-02</span><span style="font-size:12px; color:#6F7A8B;">Platform/SRE</span></span>
+              <span style="font-size:13px; color:#A2ABBA;">production</span>
+              <span><span style="display:inline-flex; align-items:center; gap:6px; border-radius:6px; padding:3px 9px; background:rgba(255,107,112,0.12); color:#FF6B70; font-size:12px;"><span style="width:6px; height:6px; border-radius:50%; background:#FF6B70;"></span>critical</span></span>
+              <span style="font-size:13px; color:#FF6B70;">internet-facing</span>
+              <span style="font-family:'IBM Plex Mono',monospace; font-size:13px; color:#A2ABBA; text-align:right;">5.3.1</span>
+            </div>
+            <div style="display:grid; grid-template-columns:1.7fr 0.9fr 1fr 1.2fr 0.8fr; height:44px; align-items:center; padding:0 14px; border-radius:10px;" style-hover="background:#171C26;">
+              <span style="display:flex; flex-direction:column;"><span style="font-family:'IBM Plex Mono',monospace; font-size:13px;">vpn-prod-blr-01</span><span style="font-size:12px; color:#6F7A8B;">Platform/SRE</span></span>
+              <span style="font-size:13px; color:#A2ABBA;">production</span>
+              <span><span style="display:inline-flex; align-items:center; gap:6px; border-radius:6px; padding:3px 9px; background:rgba(255,159,82,0.12); color:#FF9F52; font-size:12px;"><span style="width:6px; height:6px; border-radius:50%; background:#FF9F52;"></span>high</span></span>
+              <span style="font-size:13px; color:#A2ABBA;">internal only</span>
+              <span style="font-family:'IBM Plex Mono',monospace; font-size:13px; color:#A2ABBA; text-align:right;">5.3.1</span>
+            </div>
+            <div style="display:grid; grid-template-columns:1.7fr 0.9fr 1fr 1.2fr 0.8fr; height:44px; align-items:center; padding:0 14px; border-radius:10px;" style-hover="background:#171C26;">
+              <span style="display:flex; flex-direction:column;"><span style="font-family:'IBM Plex Mono',monospace; font-size:13px;">vpn-prod-blr-02</span><span style="font-size:12px; color:#6F7A8B;">Platform/SRE</span></span>
+              <span style="font-size:13px; color:#A2ABBA;">production</span>
+              <span><span style="display:inline-flex; align-items:center; gap:6px; border-radius:6px; padding:3px 9px; background:rgba(255,159,82,0.12); color:#FF9F52; font-size:12px;"><span style="width:6px; height:6px; border-radius:50%; background:#FF9F52;"></span>high</span></span>
+              <span style="font-size:13px; color:#A2ABBA;">internal only</span>
+              <span style="font-family:'IBM Plex Mono',monospace; font-size:13px; color:#A2ABBA; text-align:right;">5.2.9</span>
+            </div>
+            <div style="display:grid; grid-template-columns:1.7fr 0.9fr 1fr 1.2fr 0.8fr; height:44px; align-items:center; padding:0 14px; border-radius:10px;" style-hover="background:#171C26;">
+              <span style="display:flex; flex-direction:column;"><span style="font-family:'IBM Plex Mono',monospace; font-size:13px;">vpn-prod-del-01</span><span style="font-size:12px; color:#6F7A8B;">Network Eng</span></span>
+              <span style="font-size:13px; color:#A2ABBA;">production</span>
+              <span><span style="display:inline-flex; align-items:center; gap:6px; border-radius:6px; padding:3px 9px; background:rgba(255,159,82,0.12); color:#FF9F52; font-size:12px;"><span style="width:6px; height:6px; border-radius:50%; background:#FF9F52;"></span>high</span></span>
+              <span style="font-size:13px; color:#A2ABBA;">partner VPN peer</span>
+              <span style="font-family:'IBM Plex Mono',monospace; font-size:13px; color:#A2ABBA; text-align:right;">5.2.9</span>
+            </div>
+            <div style="display:grid; grid-template-columns:1.7fr 0.9fr 1fr 1.2fr 0.8fr; height:44px; align-items:center; padding:0 14px; border-radius:10px;" style-hover="background:#171C26;">
+              <span style="display:flex; flex-direction:column;"><span style="font-family:'IBM Plex Mono',monospace; font-size:13px;">vpn-dr-hyd-01</span><span style="font-size:12px; color:#6F7A8B;">Platform/SRE</span></span>
+              <span style="font-size:13px; color:#A2ABBA;">dr</span>
+              <span><span style="display:inline-flex; align-items:center; gap:6px; border-radius:6px; padding:3px 9px; background:rgba(240,203,77,0.12); color:#F0CB4D; font-size:12px;"><span style="width:6px; height:6px; border-radius:50%; background:#F0CB4D;"></span>medium</span></span>
+              <span style="font-size:13px; color:#A2ABBA;">internal only</span>
+              <span style="font-family:'IBM Plex Mono',monospace; font-size:13px; color:#A2ABBA; text-align:right;">5.2.9</span>
+            </div>
+            <div style="display:grid; grid-template-columns:1.7fr 0.9fr 1fr 1.2fr 0.8fr; height:44px; align-items:center; padding:0 14px; border-radius:10px;" style-hover="background:#171C26;">
+              <span style="display:flex; flex-direction:column;"><span style="font-family:'IBM Plex Mono',monospace; font-size:13px;">vpn-stage-mum-01</span><span style="font-size:12px; color:#6F7A8B;">Platform/SRE</span></span>
+              <span style="font-size:13px; color:#A2ABBA;">staging</span>
+              <span><span style="display:inline-flex; align-items:center; gap:6px; border-radius:6px; padding:3px 9px; background:rgba(111,122,139,0.16); color:#9EA9B8; font-size:12px;"><span style="width:6px; height:6px; border-radius:50%; background:#6F7A8B;"></span>low</span></span>
+              <span style="font-size:13px; color:#A2ABBA;">internal only</span>
+              <span style="font-family:'IBM Plex Mono',monospace; font-size:13px; color:#A2ABBA; text-align:right;">5.3.1</span>
+            </div>
+            <div style="display:grid; grid-template-columns:1.7fr 0.9fr 1fr 1.2fr 0.8fr; height:44px; align-items:center; padding:0 14px; border-radius:10px;" style-hover="background:#171C26;">
+              <span style="display:flex; flex-direction:column;"><span style="font-family:'IBM Plex Mono',monospace; font-size:13px;">vpn-stage-blr-01</span><span style="font-size:12px; color:#6F7A8B;">Platform/SRE</span></span>
+              <span style="font-size:13px; color:#A2ABBA;">staging</span>
+              <span><span style="display:inline-flex; align-items:center; gap:6px; border-radius:6px; padding:3px 9px; background:rgba(111,122,139,0.16); color:#9EA9B8; font-size:12px;"><span style="width:6px; height:6px; border-radius:50%; background:#6F7A8B;"></span>low</span></span>
+              <span style="font-size:13px; color:#A2ABBA;">internal only</span>
+              <span style="font-family:'IBM Plex Mono',monospace; font-size:13px; color:#A2ABBA; text-align:right;">5.3.1</span>
+            </div>
+            <div style="display:grid; grid-template-columns:1.7fr 0.9fr 1fr 1.2fr 0.8fr; height:44px; align-items:center; padding:0 14px; border-radius:10px;" style-hover="background:#171C26;">
+              <span style="display:flex; flex-direction:column;"><span style="font-family:'IBM Plex Mono',monospace; font-size:13px;">vpn-qa-mum-01</span><span style="font-size:12px; color:#6F7A8B;">Platform/SRE</span></span>
+              <span style="font-size:13px; color:#A2ABBA;">qa</span>
+              <span><span style="display:inline-flex; align-items:center; gap:6px; border-radius:6px; padding:3px 9px; background:rgba(111,122,139,0.16); color:#9EA9B8; font-size:12px;"><span style="width:6px; height:6px; border-radius:50%; background:#6F7A8B;"></span>low</span></span>
+              <span style="font-size:13px; color:#A2ABBA;">internal only</span>
+              <span style="font-family:'IBM Plex Mono',monospace; font-size:13px; color:#A2ABBA; text-align:right;">5.3.1</span>
+            </div>
+            <div style="display:grid; grid-template-columns:1.7fr 0.9fr 1fr 1.2fr 0.8fr; height:44px; align-items:center; padding:0 14px; border-radius:10px;" style-hover="background:#171C26;">
+              <span style="display:flex; flex-direction:column;"><span style="font-family:'IBM Plex Mono',monospace; font-size:13px;">vpn-qa-blr-01</span><span style="font-size:12px; color:#6F7A8B;">Platform/SRE</span></span>
+              <span style="font-size:13px; color:#A2ABBA;">qa</span>
+              <span><span style="display:inline-flex; align-items:center; gap:6px; border-radius:6px; padding:3px 9px; background:rgba(111,122,139,0.16); color:#9EA9B8; font-size:12px;"><span style="width:6px; height:6px; border-radius:50%; background:#6F7A8B;"></span>low</span></span>
+              <span style="font-size:13px; color:#A2ABBA;">internal only</span>
+              <span style="font-family:'IBM Plex Mono',monospace; font-size:13px; color:#A2ABBA; text-align:right;">4.9.6</span>
+            </div>
+            <div style="display:grid; grid-template-columns:1.7fr 0.9fr 1fr 1.2fr 0.8fr; height:44px; align-items:center; padding:0 14px; border-radius:10px;" style-hover="background:#171C26;">
+              <span style="display:flex; flex-direction:column;"><span style="font-family:'IBM Plex Mono',monospace; font-size:13px;">vpn-lab-hyd-02</span><span style="font-size:12px; color:#6F7A8B;">Network Eng</span></span>
+              <span style="font-size:13px; color:#A2ABBA;">lab</span>
+              <span><span style="display:inline-flex; align-items:center; gap:6px; border-radius:6px; padding:3px 9px; background:rgba(111,122,139,0.16); color:#9EA9B8; font-size:12px;"><span style="width:6px; height:6px; border-radius:50%; background:#6F7A8B;"></span>low</span></span>
+              <span style="font-size:13px; color:#A2ABBA;">internal only</span>
+              <span style="font-family:'IBM Plex Mono',monospace; font-size:13px; color:#A2ABBA; text-align:right;">4.9.6</span>
+            </div>
+            <div style="display:grid; grid-template-columns:1.7fr 0.9fr 1fr 1.2fr 0.8fr; height:44px; align-items:center; padding:0 14px; border-radius:10px;" style-hover="background:#171C26;">
+              <span style="display:flex; flex-direction:column;"><span style="font-family:'IBM Plex Mono',monospace; font-size:13px;">vpn-lab-mum-03</span><span style="font-size:12px; color:#6F7A8B;">Network Eng</span></span>
+              <span style="font-size:13px; color:#A2ABBA;">lab</span>
+              <span><span style="display:inline-flex; align-items:center; gap:6px; border-radius:6px; padding:3px 9px; background:rgba(111,122,139,0.16); color:#9EA9B8; font-size:12px;"><span style="width:6px; height:6px; border-radius:50%; background:#6F7A8B;"></span>low</span></span>
+              <span style="font-size:13px; color:#A2ABBA;">internal only</span>
+              <span style="font-family:'IBM Plex Mono',monospace; font-size:13px; color:#A2ABBA; text-align:right;">5.2.9</span>
+            </div>
+          </div>
+
+          <details style="background:#171C26; border-radius:12px;">
+            <summary style="height:44px; display:flex; align-items:center; padding:0 16px; gap:12px;">
+              <span style="color:#9A8CFF; font-size:13px;">▸</span>
+              <span style="font-size:13px; color:#E9ECF2;">ES|QL — query that produced this asset list</span>
+              <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#6F7A8B;">took 214ms · 23 hits · corr-8f7a2c1e</span>
+            </summary>
+            <pre style="margin:0; padding:4px 18px 18px; font-family:'IBM Plex Mono',monospace; font-size:13px; line-height:1.75; color:#D2D8E2; overflow-x:auto;"><span style="color:#9A8CFF;">FROM</span> assets-inventory, packages-installed
+<span style="color:#9A8CFF;">| WHERE</span> package.name == <span style="color:#F0CB4D;">"acme-vpn-gateway"</span> <span style="color:#9A8CFF;">AND</span> TO_VERSION(package.version) &lt; TO_VERSION(<span style="color:#F0CB4D;">"5.4.2"</span>)
+<span style="color:#9A8CFF;">| LOOKUP JOIN</span> asset-criticality <span style="color:#9A8CFF;">ON</span> host.name
+<span style="color:#9A8CFF;">| EVAL</span> exposure = CASE(net.public_ip <span style="color:#9A8CFF;">IS NOT NULL</span>, <span style="color:#F0CB4D;">"internet-facing"</span>, <span style="color:#F0CB4D;">"internal only"</span>)
+<span style="color:#9A8CFF;">| KEEP</span> host.name, host.env, host.criticality, exposure, package.version, owner.team
+<span style="color:#9A8CFF;">| SORT</span> host.criticality <span style="color:#9A8CFF;">DESC</span>, exposure <span style="color:#9A8CFF;">DESC</span>
+<span style="color:#9A8CFF;">| LIMIT</span> 50</pre>
+          </details>
+        </div>
+
+        <!-- EVIDENCE TIMELINE -->
+        <div style="background:#12161F; border:1px solid #1E242E; border-radius:16px; padding:22px 24px; display:flex; flex-direction:column; gap:12px;">
+          <div style="display:flex; align-items:center; gap:12px;">
+            <span style="font-size:15px; font-weight:500;">Evidence timeline</span>
+            <span style="font-size:12px; color:#6F7A8B;">5 records · every entry cites a source document</span>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:4px;">
+            <details style="border-radius:10px;" style-hover="background:#171C26;">
+              <summary style="min-height:44px; display:flex; align-items:center; gap:14px; padding:8px 14px;">
+                <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#6F7A8B; width:118px;">08-13 06:12:44</span>
+                <span style="width:8px; height:8px; border-radius:50%; background:#7C6BF5; flex:none;"></span>
+                <span style="font-size:13px; color:#E9ECF2; flex:1;">CERT-In advisory published — <span style="font-family:'IBM Plex Mono',monospace;">CIAD-2026-0007</span></span>
+                <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#6F7A8B;">ciad-advisories/_doc/CIAD-2026-0007</span>
+                <span style="color:#9A8CFF; font-size:13px;">▸</span>
+              </summary>
+              <div style="padding:2px 14px 14px 146px; display:flex; flex-direction:column; gap:7px;">
+                <span style="font-size:13px; color:#A2ABBA; line-height:1.6;">Severity CRITICAL · CVSS 9.8 · affected 4.8.0 – 5.4.1 · fixed in 5.4.2. Vendor confirms unauthenticated RCE via a crafted session-negotiation packet.</span>
+                <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#6F7A8B;">ingested_at 09:30:14 · parser ciad-v3 · signature verified</span>
+              </div>
+            </details>
+            <details style="border-radius:10px;" style-hover="background:#171C26;">
+              <summary style="min-height:44px; display:flex; align-items:center; gap:14px; padding:8px 14px;">
+                <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#6F7A8B; width:118px;">08-13 09:53:34</span>
+                <span style="width:8px; height:8px; border-radius:50%; background:#7C6BF5; flex:none;"></span>
+                <span style="font-size:13px; color:#E9ECF2; flex:1;">Correlation run started — <span style="font-family:'IBM Plex Mono',monospace;">corr-8f7a2c1e</span></span>
+                <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#6F7A8B;">corr-runs/_doc/corr-8f7a2c1e</span>
+                <span style="color:#9A8CFF; font-size:13px;">▸</span>
+              </summary>
+              <div style="padding:2px 14px 14px 146px; display:flex; flex-direction:column; gap:7px;">
+                <span style="font-size:13px; color:#A2ABBA; line-height:1.6;">CPE <span style="font-family:'IBM Plex Mono',monospace; color:#E9ECF2;">cpe:2.3:a:acme:vpn_gateway</span> resolved to internal package <span style="font-family:'IBM Plex Mono',monospace; color:#E9ECF2;">acme-vpn-gateway</span>; matched against 288 inventoried assets across 4 indices.</span>
+                <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#6F7A8B;">duration 2.30s · 3 tool calls · rule pack v1.4.2</span>
+              </div>
+            </details>
+            <details style="border-radius:10px;" style-hover="background:#171C26;">
+              <summary style="min-height:44px; display:flex; align-items:center; gap:14px; padding:8px 14px;">
+                <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#6F7A8B; width:118px;">08-13 09:53:36</span>
+                <span style="width:8px; height:8px; border-radius:50%; background:#7C6BF5; flex:none;"></span>
+                <span style="font-size:13px; color:#E9ECF2; flex:1;">23 vulnerable installations matched on 17 hosts</span>
+                <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#6F7A8B;">packages-installed/_search#q-8821</span>
+                <span style="color:#9A8CFF; font-size:13px;">▸</span>
+              </summary>
+              <div style="padding:2px 14px 14px 146px; display:flex; flex-direction:column; gap:7px;">
+                <span style="font-size:13px; color:#A2ABBA; line-height:1.6;">Version spread 5.3.1 (14 installs) · 5.2.9 (7) · 4.9.6 (2). 5 hosts in production, 2 with public listeners on tcp/443.</span>
+                <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#6F7A8B;">took 214ms · shard success 6/6</span>
+              </div>
+            </details>
+            <details style="border-radius:10px; background:rgba(255,107,112,0.06);">
+              <summary style="min-height:44px; display:flex; align-items:center; gap:14px; padding:8px 14px;">
+                <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#6F7A8B; width:118px;">08-13 09:47:11</span>
+                <span style="width:8px; height:8px; border-radius:50%; background:#FF6B70; flex:none;"></span>
+                <span style="font-size:13px; color:#E9ECF2; flex:1;">Suspicious VPN authentication on <span style="font-family:'IBM Plex Mono',monospace;">vpn-prod-mum-01</span></span>
+                <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#6F7A8B;">auth-logs-2026.08.13/_doc/AUTH-77f31c</span>
+                <span style="color:#9A8CFF; font-size:13px;">▸</span>
+              </summary>
+              <div style="padding:2px 14px 14px 146px; display:flex; flex-direction:column; gap:10px;">
+                <span style="font-size:13px; color:#A2ABBA; line-height:1.6;">41 failed binds followed by 1 success for <span style="font-family:'IBM Plex Mono',monospace; color:#E9ECF2;">svc_vpn_bind</span> from <span style="font-family:'IBM Plex Mono',monospace; color:#E9ECF2;">103.21.244.17</span> in a 4m 08s window, outside the account's normal schedule. Session terminated by WAF rule waf-vpn-0091 at 09:51:02.</span>
+                <div style="display:flex; gap:8px;">
+                  <span style="border-radius:8px; padding:5px 10px; background:#12161F; font-family:'IBM Plex Mono',monospace; font-size:12px; color:#D2D8E2;">event.action: vpn_bind_failed ×41</span>
+                  <span style="border-radius:8px; padding:5px 10px; background:#12161F; font-family:'IBM Plex Mono',monospace; font-size:12px; color:#D2D8E2;">event.action: vpn_bind_success ×1</span>
+                </div>
+              </div>
+            </details>
+            <details style="border-radius:10px;" style-hover="background:#171C26;">
+              <summary style="min-height:44px; display:flex; align-items:center; gap:14px; padding:8px 14px;">
+                <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#6F7A8B; width:118px;">2025-11-02</span>
+                <span style="width:8px; height:8px; border-radius:50%; background:#3A424F; flex:none;"></span>
+                <span style="font-size:13px; color:#E9ECF2; flex:1;">Prior incident linked — <span style="font-family:'IBM Plex Mono',monospace;">INC-2025-0412</span></span>
+                <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#6F7A8B;">incidents/_doc/INC-2025-0412</span>
+                <span style="color:#9A8CFF; font-size:13px;">▸</span>
+              </summary>
+              <div style="padding:2px 14px 14px 146px; display:flex; flex-direction:column; gap:7px;">
+                <span style="font-size:13px; color:#A2ABBA; line-height:1.6;">Advisory CIAD-2025-0388 · same package family · closed as "patched" with 3 of 6 hosts still on 5.2.9.</span>
+                <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#6F7A8B;">closed_by a.menon · 2025-11-09 · verification step skipped</span>
+              </div>
+            </details>
+          </div>
+        </div>
+
+        <!-- RECURRENCE -->
+        <div style="background:#12161F; border:1px solid #1E242E; border-radius:16px; padding:22px 24px; display:flex; flex-direction:column; gap:14px;">
+          <div style="display:flex; align-items:center; gap:12px;">
+            <span style="font-size:15px; font-weight:500;">Recurrence — partial patch never completed</span>
+            <span style="display:inline-flex; align-items:center; gap:7px; border-radius:6px; padding:4px 10px; background:rgba(255,159,82,0.12); color:#FF9F52; font-size:12px;"><span style="width:6px; height:6px; border-radius:50%; background:#FF9F52;"></span>contributes +8</span>
+          </div>
+          <div style="background:#171C26; border-radius:10px; padding:16px; display:flex; flex-direction:column; gap:12px;">
+            <span style="font-size:13px; color:#D2D8E2; line-height:1.65;">Incident <span style="font-family:'IBM Plex Mono',monospace; color:#FFC79A;">INC-2025-0412</span> (Nov 2025) covered the same package family under advisory <span style="font-family:'IBM Plex Mono',monospace; color:#FFC79A;">CIAD-2025-0388</span>. It was closed as remediated, but <span style="font-family:'IBM Plex Mono',monospace; color:#FFC79A;">vpn-prod-blr-02</span>, <span style="font-family:'IBM Plex Mono',monospace; color:#FFC79A;">vpn-prod-del-01</span> and <span style="font-family:'IBM Plex Mono',monospace; color:#FFC79A;">vpn-dr-hyd-01</span> were never moved off 5.2.9 — those three hosts are in scope again today.</span>
+            <div style="display:flex; gap:10px;">
+              <button style="height:36px; padding:0 16px; border-radius:10px; background:#12161F; color:#D2D8E2; border:none; font-family:'IBM Plex Sans',sans-serif; font-size:13px; cursor:pointer;" style-hover="background:#1C2230;">Open INC-2025-0412</button>
+              <button style="height:36px; padding:0 16px; border-radius:10px; background:#12161F; color:#D2D8E2; border:none; font-family:'IBM Plex Sans',sans-serif; font-size:13px; cursor:pointer;" style-hover="background:#1C2230;">Compare patch coverage</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- RECOMMENDATION (actions live in the sticky bar) -->
+        <div style="background:#12161F; border:1px solid #1E242E; border-radius:16px; padding:22px 24px; display:flex; flex-direction:column; gap:14px;">
+          <div style="display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
+            <span style="font-size:15px; font-weight:500;">Recommended action</span>
+            <span style="display:inline-flex; align-items:center; gap:7px; border-radius:6px; padding:4px 10px; background:rgba(124,107,245,0.16); color:#C3BAFF; font-size:12px;"><span style="width:6px; height:6px; border-radius:50%; background:#7C6BF5;"></span>Approval required</span>
+            <span style="font-size:12px; color:#6F7A8B;">drafted by LLM · checked against rule pack · disruptive</span>
+            <span style="flex:1;"></span>
+            <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#A2ABBA;">expires in 27m</span>
+          </div>
+          <div style="display:flex; gap:14px; align-items:stretch;">
+            <div style="flex:1; min-width:0; display:flex; flex-direction:column; gap:12px;">
+              <div style="background:#171C26; border-radius:10px; padding:16px; display:flex; gap:14px;">
+                <span style="font-family:'IBM Plex Mono',monospace; font-size:13px; color:#6F7A8B; flex:none;">01</span>
+                <div style="display:flex; flex-direction:column; gap:6px;">
+                  <span style="font-size:13px; font-weight:500; color:#FFFFFF;">Restrict external exposure on vpn-prod-mum-01 and vpn-prod-mum-02</span>
+                  <span style="font-size:13px; color:#A2ABBA; line-height:1.6;">Apply edge ACL <span style="font-family:'IBM Plex Mono',monospace; color:#E9ECF2;">acl-vpn-emergency-01</span> to allow tcp/443 only from corporate egress ranges until patched. Estimated impact: remote access for 1,240 users routed via the Bengaluru pair.</span>
+                  <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#6F7A8B;">action.type: network_restrict · reversible · runbook RB-114</span>
+                </div>
+              </div>
+              <div style="background:#171C26; border-radius:10px; padding:16px; display:flex; gap:14px;">
+                <span style="font-family:'IBM Plex Mono',monospace; font-size:13px; color:#6F7A8B; flex:none;">02</span>
+                <div style="display:flex; flex-direction:column; gap:6px;">
+                  <span style="font-size:13px; font-weight:500; color:#FFFFFF;">Emergency patch all 17 hosts to acme-vpn-gateway 5.4.2</span>
+                  <span style="font-size:13px; color:#A2ABBA; line-height:1.6;">Wave 1: the 2 internet-facing hosts inside the 4h SLA. Wave 2: remaining 3 production hosts in the 22:00–02:00 IST window. Wave 3: 12 non-production hosts. Verification gate asserts version per host — the step skipped in INC-2025-0412.</span>
+                  <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#6F7A8B;">action.type: package_upgrade · disruptive · runbook RB-207</span>
+                </div>
+              </div>
+            </div>
+            <div style="width:300px; flex:none; background:#171C26; border-radius:10px; padding:16px; display:flex; flex-direction:column; gap:12px;">
+              <div style="display:flex; align-items:center; gap:9px;">
+                <span style="font-size:12px; color:#6F7A8B; letter-spacing:0.04em;">ROLE VARIANT</span>
+                <span style="font-size:12px; color:#A2ABBA;">On-call Engineer</span>
+              </div>
+              <div style="display:flex; align-items:center; gap:9px;">
+                <span style="width:16px; height:16px; border-radius:5px; background:#232A38; display:inline-flex; align-items:center; justify-content:center;"><span style="width:5px; height:5px; border-radius:50%; background:#6F7A8B;"></span></span>
+                <span style="font-size:13px; color:#A2ABBA;">Approval locked for this role</span>
+              </div>
+              <div style="display:flex; gap:10px;">
+                <button style="height:36px; padding:0 16px; border-radius:10px; background:#151A22; color:#4E5766; border:none; font-family:'IBM Plex Sans',sans-serif; font-size:13px; cursor:not-allowed;">Approve</button>
+                <button style="height:36px; padding:0 16px; border-radius:10px; background:#151A22; color:#4E5766; border:none; font-family:'IBM Plex Sans',sans-serif; font-size:13px; cursor:not-allowed;">Reject</button>
+              </div>
+              <span style="font-size:13px; color:#6F7A8B; line-height:1.6;">Disruptive actions need SOC Manager approval. Escalation sent to <span style="font-family:'IBM Plex Mono',monospace; color:#A2ABBA;">m.rao</span> at 09:53:41 · awaiting 6m.</span>
+              <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#6F7A8B; line-height:1.5;">policy: approval.disruptive.requires_role = soc_manager</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- sticky action bar -->
+        <div style="position:sticky; bottom:0; z-index:15; background:#0D1119; border:1px solid #1E242E; border-radius:14px; padding:14px 18px; display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
+          <button style="height:40px; padding:0 20px; border-radius:10px; background:#7C6BF5; color:#0B0E14; border:none; font-family:'IBM Plex Sans',sans-serif; font-size:13px; font-weight:600; cursor:pointer;" style-hover="background:#8F80F8;">Approve both actions</button>
+          <button style="height:40px; padding:0 18px; border-radius:10px; background:#171C26; color:#D2D8E2; border:none; font-family:'IBM Plex Sans',sans-serif; font-size:13px; cursor:pointer;" style-hover="background:#1C2230;">Approve 01 only</button>
+          <button style="height:40px; padding:0 18px; border-radius:10px; background:rgba(255,107,112,0.12); color:#FF8A8E; border:none; font-family:'IBM Plex Sans',sans-serif; font-size:13px; cursor:pointer;" style-hover="background:rgba(255,107,112,0.2);">Reject</button>
+          <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#6F7A8B;">signed as m.rao · SOC Manager · appended to audit chain</span>
+          <span style="flex:1;"></span>
+          <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#A2ABBA;">expires in 27m</span>
+        </div>
+      </div>
+
+      <!-- RIGHT RAIL -->
+      <div style="width:340px; flex:none; display:flex; flex-direction:column; gap:14px;">
+        <div style="background:#12161F; border:1px solid #1E242E; border-radius:16px; padding:20px; display:flex; flex-direction:column; gap:12px;">
+          <div style="display:flex; align-items:center; justify-content:space-between; gap:10px;">
+            <span style="font-size:15px; font-weight:500;">SLA &amp; priority</span>
+            <span style="border-radius:6px; padding:3px 9px; background:rgba(255,107,112,0.12); color:#FF6B70; font-family:'IBM Plex Mono',monospace; font-size:12px;">P1</span>
+          </div>
+          <div style="background:#171C26; border-radius:10px; padding:14px; display:flex; flex-direction:column; gap:12px;">
+            <div style="display:flex; align-items:center; justify-content:space-between; gap:10px;">
+              <span style="font-family:'IBM Plex Mono',monospace; font-size:13px; color:#E9ECF2;">TKT-2026-0007 <span style="color:#6F7A8B;">⧉</span></span>
+              <span style="display:inline-flex; align-items:center; gap:6px; border-radius:6px; padding:3px 9px; background:rgba(124,107,245,0.16); color:#C3BAFF; font-family:'IBM Plex Mono',monospace; font-size:12px;"><span style="width:6px; height:6px; border-radius:50%; background:#7C6BF5;"></span>BLOCKED</span>
+            </div>
+            <div style="display:flex; align-items:baseline; justify-content:space-between; gap:10px;">
+              <span style="font-family:'IBM Plex Mono',monospace; font-size:20px; font-weight:500; line-height:1; color:#FF9F52;">02:47:12</span>
+              <span style="font-size:12px; color:#6F7A8B;">of 4h target</span>
+            </div>
+            <div style="height:6px; border-radius:999px; background:#1E242E; display:flex; overflow:hidden;"><span style="width:31%; background:#FF9F52;"></span></div>
+            <div style="display:flex; flex-direction:column; gap:8px;">
+              <div style="display:flex; justify-content:space-between; gap:10px;"><span style="font-size:12px; color:#6F7A8B;">Assignee</span><span style="font-size:13px; color:#D2D8E2;">Platform/SRE on-call</span></div>
+              <div style="display:flex; justify-content:space-between; gap:10px;"><span style="font-size:12px; color:#6F7A8B;">On-call now</span><span style="font-family:'IBM Plex Mono',monospace; font-size:13px; color:#D2D8E2;">s.kulkarni</span></div>
+              <div style="display:flex; justify-content:space-between; gap:10px;"><span style="font-size:12px; color:#6F7A8B;">Opened</span><span style="font-family:'IBM Plex Mono',monospace; font-size:13px; color:#D2D8E2;">09:53:41 IST</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div style="background:#12161F; border:1px solid #1E242E; border-radius:16px; padding:20px; display:flex; flex-direction:column; gap:16px;">
+          <div style="display:flex; align-items:baseline; gap:10px;">
+            <span style="font-size:15px; font-weight:500;">Analysis trace</span>
+            <span style="font-size:12px; color:#6F7A8B;">5.84s total · 7 tool calls</span>
+          </div>
+          <div style="display:flex; flex-direction:column;">
+            <div style="display:flex; gap:12px;">
+              <div style="width:10px; flex:none; display:flex; flex-direction:column; align-items:center;"><span style="width:10px; height:10px; border-radius:50%; background:#7C6BF5; margin-top:4px;"></span><span style="width:2px; flex:1; background:#232A38;"></span></div>
+              <div style="flex:1; padding-bottom:16px; display:flex; flex-direction:column; gap:4px;">
+                <div style="display:flex; align-items:baseline; justify-content:space-between; gap:10px;"><span style="font-size:13px; color:#FFFFFF;">Ingest</span><span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#A2ABBA;">0.42s</span></div>
+                <span style="font-size:13px; color:#A2ABBA;">Advisory parsed and signature-verified.</span>
+                <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#6F7A8B;">2 tool calls · ciad.fetch, es.index</span>
+              </div>
+            </div>
+            <div style="display:flex; gap:12px;">
+              <div style="width:10px; flex:none; display:flex; flex-direction:column; align-items:center;"><span style="width:10px; height:10px; border-radius:50%; background:#7C6BF5; margin-top:4px;"></span><span style="width:2px; flex:1; background:#232A38;"></span></div>
+              <div style="flex:1; padding-bottom:16px; display:flex; flex-direction:column; gap:4px;">
+                <div style="display:flex; align-items:baseline; justify-content:space-between; gap:10px;"><span style="font-size:13px; color:#FFFFFF;">Extract</span><span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#A2ABBA;">1.10s</span></div>
+                <span style="font-size:13px; color:#A2ABBA;">CPE, version range and vendor pulled to structured fields.</span>
+                <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#6F7A8B;">1 tool call · llm.extract_cpe</span>
+              </div>
+            </div>
+            <div style="display:flex; gap:12px;">
+              <div style="width:10px; flex:none; display:flex; flex-direction:column; align-items:center;"><span style="width:10px; height:10px; border-radius:50%; background:#7C6BF5; margin-top:4px;"></span><span style="width:2px; flex:1; background:#232A38;"></span></div>
+              <div style="flex:1; padding-bottom:16px; display:flex; flex-direction:column; gap:4px;">
+                <div style="display:flex; align-items:baseline; justify-content:space-between; gap:10px;"><span style="font-size:13px; color:#FFFFFF;">Correlate</span><span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#A2ABBA;">2.30s</span></div>
+                <span style="font-size:13px; color:#A2ABBA;">23 installs · 17 hosts · 2 exposed.</span>
+                <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#6F7A8B;">3 tool calls · esql.query ×2, asset.enrich</span>
+              </div>
+            </div>
+            <div style="display:flex; gap:12px;">
+              <div style="width:10px; flex:none; display:flex; flex-direction:column; align-items:center;"><span style="width:10px; height:10px; border-radius:50%; background:#7C6BF5; margin-top:4px;"></span><span style="width:2px; flex:1; background:#232A38;"></span></div>
+              <div style="flex:1; padding-bottom:16px; display:flex; flex-direction:column; gap:4px;">
+                <div style="display:flex; align-items:baseline; justify-content:space-between; gap:10px;"><span style="font-size:13px; color:#FFFFFF;">Assess</span><span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#A2ABBA;">0.18s</span></div>
+                <span style="font-size:13px; color:#A2ABBA;">Score 94/100 — deterministic, no model input.</span>
+                <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#6F7A8B;">0 tool calls · rules v1.4.2, 6 factors</span>
+              </div>
+            </div>
+            <div style="display:flex; gap:12px;">
+              <div style="width:10px; flex:none; display:flex; flex-direction:column; align-items:center;"><span style="width:10px; height:10px; border-radius:50%; background:#7C6BF5; margin-top:4px;"></span><span style="width:2px; flex:1; background:#232A38;"></span></div>
+              <div style="flex:1; padding-bottom:16px; display:flex; flex-direction:column; gap:4px;">
+                <div style="display:flex; align-items:baseline; justify-content:space-between; gap:10px;"><span style="font-size:13px; color:#FFFFFF;">Recommend</span><span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#A2ABBA;">1.84s</span></div>
+                <span style="font-size:13px; color:#A2ABBA;">2 actions drafted from runbooks RB-114, RB-207.</span>
+                <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#6F7A8B;">1 tool call · llm.draft_action</span>
+              </div>
+            </div>
+            <div style="display:flex; gap:12px;">
+              <div style="width:10px; flex:none; display:flex; flex-direction:column; align-items:center;"><span style="width:10px; height:10px; border-radius:50%; background:#171C26; box-shadow:inset 0 0 0 2px #7C6BF5; margin-top:4px;"></span></div>
+              <div style="flex:1; display:flex; flex-direction:column; gap:4px;">
+                <div style="display:flex; align-items:baseline; justify-content:space-between; gap:10px;"><span style="font-size:13px; color:#C3BAFF;">Ticket</span><span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#A2ABBA;">waiting</span></div>
+                <span style="font-size:13px; color:#A2ABBA;">Execution begins after SOC Manager approval.</span>
+                <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#6F7A8B;">blocked on approval · 0 tool calls</span>
+              </div>
+            </div>
+          </div>
+          <span style="font-size:12px; color:#6F7A8B; line-height:1.5;">Model reasoning is not stored or displayed. Tool calls and outputs only.</span>
+        </div>
+
+        <div style="background:#12161F; border:1px solid #1E242E; border-radius:16px; padding:20px; display:flex; flex-direction:column; gap:12px;">
+          <span style="font-size:15px; font-weight:500;">Audit chain</span>
+          <div style="background:#171C26; border-radius:10px; padding:14px; display:flex; flex-direction:column; gap:9px;">
+            <div style="display:flex; justify-content:space-between; gap:10px;"><span style="font-size:12px; color:#6F7A8B;">block</span><span style="font-family:'IBM Plex Mono',monospace; font-size:13px; color:#D2D8E2;">#8,441</span></div>
+            <div style="display:flex; justify-content:space-between; gap:10px;"><span style="font-size:12px; color:#6F7A8B;">prev</span><span style="font-family:'IBM Plex Mono',monospace; font-size:13px; color:#D2D8E2;">sha256:41d0e7…b18c</span></div>
+            <div style="display:flex; justify-content:space-between; gap:10px;"><span style="font-size:12px; color:#6F7A8B;">this</span><span style="font-family:'IBM Plex Mono',monospace; font-size:13px; color:#D2D8E2;">sha256:9c14ab…07f2</span></div>
+            <div style="display:flex; justify-content:space-between; gap:10px;"><span style="font-size:12px; color:#6F7A8B;">entries</span><span style="font-family:'IBM Plex Mono',monospace; font-size:13px; color:#D2D8E2;">6 for this alert</span></div>
+          </div>
+          <span style="display:inline-flex; align-items:center; gap:8px; font-size:13px; color:#5CD1A6;"><span style="width:6px; height:6px; border-radius:50%; background:#5CD1A6;"></span>Chain verified 09:54:02 IST</span>
+        </div>
+      </div>
+    </div>
+
+    <div style="display:flex; align-items:center; padding:0 24px 20px; gap:18px; font-family:'IBM Plex Mono',monospace; font-size:12px; color:#6F7A8B;">
+      <span style="display:inline-flex; align-items:center; gap:7px;"><span style="width:6px; height:6px; border-radius:50%; background:#5CD1A6;"></span>Elasticsearch connected · es-soc-mum · 4 indices</span>
+      <span>LLM claude-sonnet-4.6 · explanation only</span>
+      <span>last sync 14s ago</span>
+      <span>ingest lag 2.1s</span>
+      <span style="flex:1;"></span>
+      <span>audit chain #8,441 · verified</span>
+    </div>
+
+    <!-- assistant FAB · sits clear of the sticky action bar -->
+    <div style="position:sticky; bottom:96px; z-index:25; align-self:flex-end; margin-right:24px; margin-top:-52px; display:flex; align-items:center; gap:10px;">
+      <span style="border-radius:8px; padding:7px 11px; background:#232A38; color:#E9ECF2; font-size:12px; box-shadow:0 0 0 1px #2C3444;">Analyst · <span style="font-family:'IBM Plex Mono',monospace;">⌘J</span></span>
+      <span style="position:relative; width:52px; height:52px; border-radius:18px; background:#7C6BF5; box-shadow:0 0 0 6px rgba(124,107,245,0.14), 0 10px 26px rgba(124,107,245,0.28); display:inline-flex; align-items:center; justify-content:center;">
+        <span style="width:18px; height:18px; border-radius:6px; background:rgba(11,14,20,0.85);"></span>
+        <span style="position:absolute; top:-4px; right:-4px; min-width:20px; height:20px; border-radius:999px; background:#FF6B70; color:#0B0E14; font-family:'IBM Plex Mono',monospace; font-size:12px; display:inline-flex; align-items:center; justify-content:center; padding:0 6px;">1</span>
+      </span>
+    </div>
+  </div>
+</section>
+<!-- ========================= SCREEN 04 · ASSISTANT STATES ========================= -->
+<section data-screen-label="04 Analyst Assistant" style="display:flex; flex-direction:column; gap:14px;">
+  <div style="display:flex; align-items:baseline; gap:12px;">
+    <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:0.1em; color:#6F7A8B;">SCREEN 04</span>
+    <span style="font-size:13px; color:#A2ABBA;">Analyst Assistant — states</span>
+  </div>
+
+  <div style="width:1440px; background:#0B0E14; background-image:radial-gradient(820px 460px at 3% -6%, rgba(124,107,245,0.10), transparent 70%), radial-gradient(760px 420px at 98% 104%, rgba(124,107,245,0.08), transparent 70%); padding:28px; display:flex; flex-direction:column; gap:20px;">
+
+    <div style="display:flex; align-items:flex-end; justify-content:space-between;">
+      <div style="display:flex; flex-direction:column; gap:6px;">
+        <span style="font-size:20px; font-weight:600; letter-spacing:-0.01em;">Analyst Assistant — four states</span>
+        <span style="font-size:13px; color:#6F7A8B;">Collapsed · docked right · floating · narrow. The right rail is unaffected; only the conversation collapses.</span>
+      </div>
+      <span style="display:inline-flex; align-items:center; gap:7px; border-radius:6px; padding:4px 10px; background:rgba(124,107,245,0.14); color:#9A8CFF; font-size:12px;"><span style="width:6px; height:6px; border-radius:50%; background:#7C6BF5;"></span>mode and width persist per user</span>
+    </div>
+
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+
+      <!-- A · COLLAPSED -->
+      <div style="background:#12161F; border:1px solid #1E242E; border-radius:16px; padding:22px; display:flex; flex-direction:column; gap:14px;">
+        <div style="display:flex; align-items:baseline; gap:10px;"><span style="font-size:15px; font-weight:500;">A · Collapsed</span><span style="font-size:12px; color:#6F7A8B;">FAB only · 52px squircle · 24px from both edges</span></div>
+        <div style="position:relative; height:290px; border-radius:12px; background:#171C26; overflow:hidden;">
+          <div style="height:34px; display:flex; align-items:center; padding:0 14px; gap:10px; background:#0D1119;">
+            <span style="width:12px; height:12px; border-radius:4px; background:#7C6BF5;"></span>
+            <span style="font-size:12px; color:#6F7A8B;">page content unaffected — nothing overlays it</span>
+          </div>
+          <div style="padding:16px 14px; display:flex; flex-direction:column; gap:8px;">
+            <span style="height:10px; width:52%; border-radius:5px; background:#1B212C;"></span>
+            <span style="height:10px; width:76%; border-radius:5px; background:#1B212C;"></span>
+            <span style="height:10px; width:38%; border-radius:5px; background:#1B212C;"></span>
+          </div>
+          <div style="position:absolute; right:24px; bottom:24px; display:flex; align-items:center; gap:10px;">
+            <span style="border-radius:8px; padding:7px 11px; background:#232A38; color:#E9ECF2; font-size:12px; box-shadow:0 0 0 1px #2C3444;">Analyst · <span style="font-family:'IBM Plex Mono',monospace;">⌘J</span></span>
+            <span style="position:relative; width:52px; height:52px; border-radius:18px; background:#7C6BF5; box-shadow:0 0 0 6px rgba(124,107,245,0.14), 0 10px 26px rgba(124,107,245,0.28); display:inline-flex; align-items:center; justify-content:center;">
+              <span style="width:18px; height:18px; border-radius:6px; background:rgba(11,14,20,0.85);"></span>
+              <span style="position:absolute; top:-4px; right:-4px; min-width:20px; height:20px; border-radius:999px; background:#FF6B70; color:#0B0E14; font-family:'IBM Plex Mono',monospace; font-size:12px; display:inline-flex; align-items:center; justify-content:center; padding:0 6px;">1</span>
+            </span>
+          </div>
+        </div>
+        <span style="font-size:12px; color:#6F7A8B;">Badge shows unread proactive output. Hover reveals the label; ⌘J opens the last used mode.</span>
+      </div>
+
+      <!-- B · DOCKED RIGHT -->
+      <div style="background:#12161F; border:1px solid #1E242E; border-radius:16px; padding:22px; display:flex; flex-direction:column; gap:14px;">
+        <div style="display:flex; align-items:baseline; gap:10px;"><span style="font-size:15px; font-weight:500;">B · Docked right</span><span style="font-size:12px; color:#6F7A8B;">420px default · content pushes, never overlays</span></div>
+        <div style="display:flex; align-items:center; gap:10px;">
+          <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#6F7A8B;">360 min</span>
+          <span style="flex:1; height:1px; background:#232A38; position:relative;"><span style="position:absolute; left:36%; top:-4px; width:9px; height:9px; border-radius:50%; background:#7C6BF5;"></span></span>
+          <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#9A8CFF;">420 default</span>
+          <span style="flex:1; height:1px; background:#232A38;"></span>
+          <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#6F7A8B;">560 max</span>
+        </div>
+        <div style="height:400px; border-radius:12px; background:#171C26; overflow:hidden; display:flex; flex-direction:column;">
+          <div style="height:34px; flex:none; display:flex; align-items:center; padding:0 14px; background:#0D1119;"><span style="font-size:12px; color:#6F7A8B;">top bar stays pinned · panel starts below it</span></div>
+          <div style="flex:1; min-height:0; display:flex;">
+            <div style="flex:1; min-width:0; padding:14px; display:flex; flex-direction:column; gap:8px;">
+              <span style="height:10px; width:60%; border-radius:5px; background:#1B212C;"></span>
+              <span style="height:10px; width:82%; border-radius:5px; background:#1B212C;"></span>
+              <span style="height:10px; width:44%; border-radius:5px; background:#1B212C;"></span>
+              <span style="font-size:12px; color:#6F7A8B; margin-top:6px;">main column reflows to the remaining width</span>
+            </div>
+            <span style="width:4px; flex:none; background:#7C6BF5; opacity:0.55; cursor:col-resize;"></span>
+            <div style="width:280px; flex:none; background:#12161F; padding:16px; display:flex; flex-direction:column; gap:12px;">
+              <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:10px;">
+                <div style="display:flex; flex-direction:column; gap:5px;">
+                  <span style="font-size:13px; font-weight:500;">Sentinel-In Analyst</span>
+                  <span style="border-radius:6px; padding:3px 8px; background:#171C26; font-size:12px; color:#A2ABBA;">Grounded on <span style="font-family:'IBM Plex Mono',monospace;">alert-2026-0007</span> · 5 evidence records</span>
+                </div>
+                <div style="display:flex; gap:6px; flex:none;">
+                  <span style="width:22px; height:22px; border-radius:7px; background:#171C26; color:#A2ABBA; font-size:12px; display:inline-flex; align-items:center; justify-content:center;">⤢</span>
+                  <span style="width:22px; height:22px; border-radius:7px; background:#171C26; color:#A2ABBA; font-size:12px; display:inline-flex; align-items:center; justify-content:center;">›</span>
+                </div>
+              </div>
+              <div style="display:flex; gap:3px; background:#171C26; border-radius:9px; padding:3px;">
+                <span style="flex:1; text-align:center; border-radius:7px; padding:5px 0; background:#232A38; color:#FFFFFF; font-size:12px;">Claude</span>
+                <span style="flex:1; text-align:center; border-radius:7px; padding:5px 0; color:#A2ABBA; font-size:12px;">GPT</span>
+                <span style="flex:1; text-align:center; border-radius:7px; padding:5px 0; color:#A2ABBA; font-size:12px;">Bedrock</span>
+              </div>
+              <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px;">
+                <div style="background:#171C26; border-radius:10px; padding:10px; display:flex; flex-direction:column; gap:8px; min-height:70px;"><span style="width:18px; height:18px; border-radius:6px; background:rgba(124,107,245,0.2);"></span><span style="font-size:12px; color:#D2D8E2; line-height:1.4;">Explain this incident simply</span></div>
+                <div style="background:#171C26; border-radius:10px; padding:10px; display:flex; flex-direction:column; gap:8px; min-height:70px;"><span style="width:18px; height:18px; border-radius:6px; background:rgba(255,107,112,0.18);"></span><span style="font-size:12px; color:#D2D8E2; line-height:1.4;">Why is vpn-prod-mum-01 critical?</span></div>
+                <div style="background:#171C26; border-radius:10px; padding:10px; display:flex; flex-direction:column; gap:8px; min-height:70px;"><span style="width:18px; height:18px; border-radius:6px; background:rgba(255,159,82,0.18);"></span><span style="font-size:12px; color:#D2D8E2; line-height:1.4;">Which production assets are internet exposed?</span></div>
+                <div style="background:#171C26; border-radius:10px; padding:10px; display:flex; flex-direction:column; gap:8px; min-height:70px;"><span style="width:18px; height:18px; border-radius:6px; background:rgba(92,209,166,0.18);"></span><span style="font-size:12px; color:#D2D8E2; line-height:1.4;">What should on-call do first?</span></div>
+              </div>
+              <div style="flex:1;"></div>
+              <div style="display:flex; align-items:center; gap:9px; height:38px; border-radius:10px; background:#171C26; padding:0 11px;">
+                <span style="font-size:13px; color:#6F7A8B; flex:1;">Ask something…</span>
+                <span style="width:24px; height:24px; border-radius:7px; background:#7C6BF5; color:#0B0E14; display:inline-flex; align-items:center; justify-content:center; font-size:12px;">↑</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <span style="font-size:12px; color:#6F7A8B;">4px handle on the left edge drags between 360 and 560. Collapse (›) returns to the FAB; undock (⤢) switches to floating.</span>
+      </div>
+
+      <!-- C · FLOATING -->
+      <div style="background:#12161F; border:1px solid #1E242E; border-radius:16px; padding:22px; display:flex; flex-direction:column; gap:14px;">
+        <div style="display:flex; align-items:baseline; gap:10px;"><span style="font-size:15px; font-weight:500;">C · Floating</span><span style="font-size:12px; color:#6F7A8B;">420 × 600 · drag by header · never covers the action bar</span></div>
+        <div style="position:relative; height:400px; border-radius:12px; background:#171C26; overflow:hidden;">
+          <div style="height:34px; display:flex; align-items:center; padding:0 14px; background:#0D1119;"><span style="font-size:12px; color:#6F7A8B;">alert detail behind · soft shadow, no blur veil</span></div>
+          <div style="padding:14px; display:flex; flex-direction:column; gap:8px;">
+            <span style="height:10px; width:46%; border-radius:5px; background:#1B212C;"></span>
+            <span style="height:10px; width:66%; border-radius:5px; background:#1B212C;"></span>
+          </div>
+
+          <div style="position:absolute; right:18px; bottom:76px; width:300px; height:266px; border-radius:14px; background:#12161F; border:1px solid #2C3444; box-shadow:0 22px 48px rgba(0,0,0,0.55); display:flex; flex-direction:column; overflow:hidden;">
+            <div style="display:flex; align-items:center; gap:10px; padding:12px 14px; cursor:grab;">
+              <span style="display:flex; flex-direction:column; gap:2px;"><span style="width:16px; height:2px; border-radius:2px; background:#3A424F;"></span><span style="width:16px; height:2px; border-radius:2px; background:#3A424F;"></span></span>
+              <span style="font-size:13px; font-weight:500; flex:1;">Sentinel-In Analyst</span>
+              <span style="width:22px; height:22px; border-radius:7px; background:#171C26; color:#A2ABBA; font-size:12px; display:inline-flex; align-items:center; justify-content:center;">⇥</span>
+              <span style="width:22px; height:22px; border-radius:7px; background:#171C26; color:#A2ABBA; font-size:12px; display:inline-flex; align-items:center; justify-content:center;">×</span>
+            </div>
+            <div style="padding:0 14px 12px; display:flex; flex-direction:column; gap:10px; flex:1; min-height:0;">
+              <span style="border-radius:6px; padding:3px 8px; background:#171C26; font-size:12px; color:#A2ABBA; align-self:flex-start;">Grounded on <span style="font-family:'IBM Plex Mono',monospace;">alert-2026-0007</span></span>
+              <div style="display:flex; gap:3px; background:#171C26; border-radius:9px; padding:3px;">
+                <span style="flex:1; text-align:center; border-radius:7px; padding:5px 0; background:#232A38; color:#FFFFFF; font-size:12px;">Claude</span>
+                <span style="flex:1; text-align:center; border-radius:7px; padding:5px 0; color:#A2ABBA; font-size:12px;">GPT</span>
+                <span style="flex:1; text-align:center; border-radius:7px; padding:5px 0; color:#A2ABBA; font-size:12px;">Bedrock</span>
+              </div>
+              <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px;">
+                <div style="background:#171C26; border-radius:10px; padding:10px; display:flex; flex-direction:column; gap:7px;"><span style="width:16px; height:16px; border-radius:5px; background:rgba(124,107,245,0.2);"></span><span style="font-size:12px; color:#D2D8E2; line-height:1.4;">Explain this incident simply</span></div>
+                <div style="background:#171C26; border-radius:10px; padding:10px; display:flex; flex-direction:column; gap:7px;"><span style="width:16px; height:16px; border-radius:5px; background:rgba(255,107,112,0.18);"></span><span style="font-size:12px; color:#D2D8E2; line-height:1.4;">Why is vpn-prod-mum-01 critical?</span></div>
+              </div>
+              <div style="flex:1;"></div>
+              <div style="display:flex; align-items:center; gap:9px; height:36px; border-radius:10px; background:#171C26; padding:0 11px;">
+                <span style="font-size:13px; color:#6F7A8B; flex:1;">Ask something…</span>
+                <span style="width:22px; height:22px; border-radius:7px; background:#7C6BF5; color:#0B0E14; display:inline-flex; align-items:center; justify-content:center; font-size:12px;">↑</span>
+              </div>
+            </div>
+            <span style="position:absolute; right:5px; bottom:5px; width:10px; height:10px; border-right:2px solid #3A424F; border-bottom:2px solid #3A424F; cursor:nwse-resize;"></span>
+          </div>
+
+          <div style="position:absolute; left:14px; right:14px; bottom:14px; height:48px; border-radius:12px; background:#0D1119; border:1px solid #1E242E; display:flex; align-items:center; gap:10px; padding:0 14px;">
+            <span style="height:30px; padding:0 14px; border-radius:9px; background:#7C6BF5; color:#0B0E14; font-size:12px; font-weight:600; display:inline-flex; align-items:center;">Approve both actions</span>
+            <span style="height:30px; padding:0 12px; border-radius:9px; background:#171C26; color:#D2D8E2; font-size:12px; display:inline-flex; align-items:center;">Approve 01 only</span>
+            <span style="height:30px; padding:0 12px; border-radius:9px; background:rgba(255,107,112,0.12); color:#FF8A8E; font-size:12px; display:inline-flex; align-items:center;">Reject</span>
+            <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:#6F7A8B;">sticky action bar stays reachable</span>
+          </div>
+        </div>
+        <span style="font-size:12px; color:#6F7A8B;">The window is clamped above the action bar; dragging it lower stops at that boundary.</span>
+      </div>
+
+      <!-- D · NARROW -->
+      <div style="background:#12161F; border:1px solid #1E242E; border-radius:16px; padding:22px; display:flex; flex-direction:column; gap:14px;">
+        <div style="display:flex; align-items:baseline; gap:10px;"><span style="font-size:15px; font-weight:500;">D · Narrow</span><span style="font-size:12px; color:#6F7A8B;">docked at 360px min — quick actions become a single-column list</span></div>
+        <div style="height:400px; border-radius:12px; background:#171C26; overflow:hidden; display:flex; flex-direction:column;">
+          <div style="height:34px; flex:none; display:flex; align-items:center; padding:0 14px; background:#0D1119;"><span style="font-size:12px; color:#6F7A8B;">handle at the 360 stop · further drag is blocked</span></div>
+          <div style="flex:1; min-height:0; display:flex;">
+            <div style="flex:1; min-width:0; padding:14px; display:flex; flex-direction:column; gap:8px;">
+              <span style="height:10px; width:70%; border-radius:5px; background:#1B212C;"></span>
+              <span style="height:10px; width:88%; border-radius:5px; background:#1B212C;"></span>
+              <span style="height:10px; width:54%; border-radius:5px; background:#1B212C;"></span>
+            </div>
+            <span style="width:4px; flex:none; background:#7C6BF5; opacity:0.55; cursor:col-resize;"></span>
+            <div style="width:240px; flex:none; background:#12161F; padding:14px; display:flex; flex-direction:column; gap:10px;">
+              <div style="display:flex; align-items:center; gap:8px;">
+                <span style="font-size:13px; font-weight:500; flex:1;">Sentinel-In Analyst</span>
+                <span style="width:22px; height:22px; border-radius:7px; background:#171C26; color:#A2ABBA; font-size:12px; display:inline-flex; align-items:center; justify-content:center;">›</span>
+              </div>
+              <span style="border-radius:6px; padding:3px 8px; background:#171C26; font-size:12px; color:#A2ABBA;">Grounded on <span style="font-family:'IBM Plex Mono',monospace;">alert-2026-0007</span></span>
+              <div style="display:flex; gap:3px; background:#171C26; border-radius:9px; padding:3px;">
+                <span style="flex:1; text-align:center; border-radius:7px; padding:5px 0; background:#232A38; color:#FFFFFF; font-size:12px;">Claude</span>
+                <span style="flex:1; text-align:center; border-radius:7px; padding:5px 0; color:#A2ABBA; font-size:12px;">GPT</span>
+                <span style="flex:1; text-align:center; border-radius:7px; padding:5px 0; color:#A2ABBA; font-size:12px;">Bedrock</span>
+              </div>
+              <div style="display:flex; flex-direction:column; gap:6px;">
+                <div style="background:#171C26; border-radius:10px; padding:10px 11px; display:flex; align-items:center; gap:10px;"><span style="width:16px; height:16px; border-radius:5px; background:rgba(124,107,245,0.2); flex:none;"></span><span style="font-size:12px; color:#D2D8E2;">Explain this incident simply</span></div>
+                <div style="background:#171C26; border-radius:10px; padding:10px 11px; display:flex; align-items:center; gap:10px;"><span style="width:16px; height:16px; border-radius:5px; background:rgba(255,107,112,0.18); flex:none;"></span><span style="font-size:12px; color:#D2D8E2;">Why is vpn-prod-mum-01 critical?</span></div>
+                <div style="background:#171C26; border-radius:10px; padding:10px 11px; display:flex; align-items:center; gap:10px;"><span style="width:16px; height:16px; border-radius:5px; background:rgba(255,159,82,0.18); flex:none;"></span><span style="font-size:12px; color:#D2D8E2;">Which assets are exposed?</span></div>
+                <div style="background:#171C26; border-radius:10px; padding:10px 11px; display:flex; align-items:center; gap:10px;"><span style="width:16px; height:16px; border-radius:5px; background:rgba(92,209,166,0.18); flex:none;"></span><span style="font-size:12px; color:#D2D8E2;">What should on-call do first?</span></div>
+              </div>
+              <div style="flex:1;"></div>
+              <div style="display:flex; align-items:center; gap:9px; height:36px; border-radius:10px; background:#171C26; padding:0 11px;">
+                <span style="font-size:13px; color:#6F7A8B; flex:1;">Ask something…</span>
+                <span style="width:22px; height:22px; border-radius:7px; background:#7C6BF5; color:#0B0E14; display:inline-flex; align-items:center; justify-content:center; font-size:12px;">↑</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <span style="font-size:12px; color:#6F7A8B;">Below 400px the 2×2 grid degrades to full-width rows; the scope chip truncates before the input does.</span>
+      </div>
+    </div>
+
+    <div style="background:#12161F; border:1px solid #1E242E; border-radius:16px; padding:18px 22px;">
+      <span style="font-family:'IBM Plex Mono',monospace; font-size:13px; color:#A2ABBA;">⌘J toggle · Esc collapse · drag edge to resize · mode and width persist per user · entity chips can be dragged in to scope the conversation</span>
+    </div>
+  </div>
+</section>
+
+</div>
+
+</x-dc>
+</body>
+</html>

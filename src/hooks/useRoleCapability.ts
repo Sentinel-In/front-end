@@ -4,10 +4,11 @@
    ============================================================ */
 
 import { useRoleStore } from '../store/useRoleStore';
+import type { RoleCapability } from '../types';
 
-export function useRoleCapability(capability: keyof ReturnType<typeof useRoleStore.getState>['getCapabilities'] extends () => infer R ? R : never) {
+export function useRoleCapability(capability: RoleCapability) {
   const capabilities = useRoleStore((s) => s.getCapabilities());
-  return capabilities[capability as keyof typeof capabilities];
+  return capabilities[capability];
 }
 
 export function useRoleCapabilities() {

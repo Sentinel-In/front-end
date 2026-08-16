@@ -1,25 +1,28 @@
 /* ============================================================
-   RoleSwitcher — SPEC §3, §9
-   Dropdown with 3 roles, descriptions, and switch behaviour.
+   RoleSwitcher — SPEC-004 §0
+   Dropdown with 4 roles, descriptions, and switch behaviour.
    ============================================================ */
 
 import { useState, useRef, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { ChevronDown, Shield, Radio, Microscope } from 'lucide-react';
+import { ChevronDown, Shield, Radio, Microscope, Wrench } from 'lucide-react';
 import { useRoleStore, ROLE_CONFIGS } from '../../store/useRoleStore';
 import { useAppStore } from '../../store/useAppStore';
+import { useBlackboardStore } from '../../store/useBlackboardStore';
 import type { Role } from '../../types';
 
-const ROLE_ICONS = {
+const ROLE_ICONS: Record<Role, typeof Shield> = {
   executive: Shield,
-  oncall: Radio,
-  analyst: Microscope,
-} as const;
+  lead_manager: Radio,
+  risk_analyst: Microscope,
+  engineer: Wrench,
+};
 
 const ROLE_DESCRIPTIONS: Record<Role, string> = {
-  executive: 'Strategic overview, compliance posture, PDF exports',
-  oncall: 'Triage queue, approvals, incident response',
-  analyst: 'Deep evidence, ES|QL, audit chain verification',
+  executive: 'Strategic overview, compliance posture, Board Brief',
+  lead_manager: 'Triage queue, approvals, ticket oversight',
+  risk_analyst: 'Deep evidence, contradictions, recommendations',
+  engineer: 'Three-phase runbook, verification, task execution',
 };
 
 export function RoleSwitcher() {
@@ -64,11 +67,11 @@ export function RoleSwitcher() {
 
     // Toast (SPEC §3: "Show a 2s toast")
     const capabilities = newConfig.capabilities;
-    const capNote = capabilities.canApprove
+    const capNote = capabilities.canApproveP0 || capabilities.canApproveRoutine
       ? 'Approval enabled.'
-      : capabilities.canRunEsql
-      ? 'ES|QL console enabled.'
-      : 'PDF export only.';
+      : capabilities.canViewRawEvidence
+      ? 'Evidence access enabled.'
+      : 'Read-only view.';
 
     pushToast({
       message: `Now viewing as ${newConfig.identity.shortTitle}. ${capNote}`,
@@ -114,84 +117,108 @@ export function RoleSwitcher() {
       </button>
 
       {open && (
-        <div
-          role="listbox"
-          style={{
-            position: 'absolute',
-            top: 'calc(100% + 6px)',
-            right: 0,
-            width: '280px',
-            backgroundColor: 'var(--color-surface)',
-            border: '1px solid var(--color-border)',
-            borderRadius: 'var(--radius-panel)',
-            padding: '4px',
-            zIndex: 40,
-            boxShadow: '0 8px 24px rgba(0, 0, 0, 0.3)',
-          }}
-        >
-          {(Object.keys(ROLE_CONFIGS) as Role[]).map((r) => {
-            const rc = ROLE_CONFIGS[r];
-            const RIcon = ROLE_ICONS[r];
-            const isActive = r === role;
+        <>
+          <div
+            role="listbox"
+            style={{
+              position: 'absolute',
+              top: 'calc(100% + 6px)',
+              right: 0,
+              width: '300px',
+              backgroundColor: 'var(--color-surface)',
+              border: '1px solid var(--color-border)',
+              borderRadius: 'var(--radius-panel)',
+              padding: '4px',
+              zIndex: 40,
+              boxShadow: '0 8px 24px rgba(0, 0, 0, 0.3)',
+            }}
+          >
+            {(Object.keys(ROLE_CONFIGS) as Role[]).map((r) => {
+              const rc = ROLE_CONFIGS[r];
+              const RIcon = ROLE_ICONS[r];
+              const isActive = r === role;
 
-            return (
-              <button
-                key={r}
-                role="option"
-                aria-selected={isActive}
-                onClick={() => handleSelect(r)}
-                className="flex items-start gap-3 w-full"
-                style={{
-                  padding: '10px 12px',
-                  backgroundColor: isActive ? 'var(--color-accent-bg)' : 'transparent',
-                  border: 'none',
-                  borderRadius: 'var(--radius-chip)',
-                  cursor: 'pointer',
-                  textAlign: 'left',
-                  width: '100%',
-                }}
-              >
-                <RIcon
-                  size={16}
+              return (
+                <button
+                  key={r}
+                  role="option"
+                  aria-selected={isActive}
+                  onClick={() => handleSelect(r)}
+                  className="flex items-start gap-3 w-full"
                   style={{
-                    color: isActive ? 'var(--color-accent)' : 'var(--color-text-muted)',
-                    marginTop: '2px',
-                    flexShrink: 0,
+                    padding: '10px 12px',
+                    backgroundColor: isActive ? 'var(--color-accent-bg)' : 'transparent',
+                    border: 'none',
+                    borderRadius: 'var(--radius-chip)',
+                    cursor: 'pointer',
+                    textAlign: 'left',
+                    width: '100%',
                   }}
-                />
-                <div>
-                  <div
+                >
+                  <RIcon
+                    size={16}
                     style={{
-                      fontSize: '13px',
-                      fontWeight: isActive ? 600 : 500,
-                      color: isActive ? 'var(--color-accent)' : 'var(--color-text)',
+                      color: isActive ? 'var(--color-accent)' : 'var(--color-text-muted)',
+                      marginTop: '2px',
+                      flexShrink: 0,
                     }}
-                  >
-                    {rc.identity.name}
-                    <span
+                  />
+                  <div>
+                    <div
                       style={{
-                        color: 'var(--color-text-muted)',
-                        fontWeight: 400,
-                        marginLeft: '6px',
+                        fontSize: '13px',
+                        fontWeight: isActive ? 600 : 500,
+                        color: isActive ? 'var(--color-accent)' : 'var(--color-text)',
                       }}
                     >
-                      {rc.identity.title}
-                    </span>
+                      {rc.identity.name}
+                      <span
+                        style={{
+                          color: 'var(--color-text-muted)',
+                          fontWeight: 400,
+                          marginLeft: '6px',
+                        }}
+                      >
+                        {rc.identity.title}
+                      </span>
+                    </div>
+                    <div
+                      style={{
+                        fontSize: '12px',
+                        color: 'var(--color-text-dim)',
+                        marginTop: '2px',
+                      }}
+                    >
+                      {ROLE_DESCRIPTIONS[r]}
+                    </div>
                   </div>
-                  <div
-                    style={{
-                      fontSize: '12px',
-                      color: 'var(--color-text-dim)',
-                      marginTop: '2px',
-                    }}
-                  >
-                    {ROLE_DESCRIPTIONS[r]}
-                  </div>
-                </div>
+                </button>
+              );
+            })}
+            
+            <div style={{ marginTop: '12px', paddingTop: '12px', borderTop: '1px solid var(--color-border)' }}>
+              <button
+                onClick={() => {
+                  setOpen(false);
+                  useBlackboardStore.getState().simulateBackendCommit();
+                }}
+                className="flex items-center justify-center gap-2 w-full"
+                style={{
+                  padding: '8px 12px',
+                  backgroundColor: 'var(--color-surface-2)',
+                  border: '1px dashed var(--color-border)',
+                  borderRadius: 'var(--radius-chip)',
+                  cursor: 'pointer',
+                  fontSize: '12px',
+                  color: 'var(--color-text-dim)',
+                  fontWeight: 500,
+                }}
+              >
+                [Dev] Simulate harness commit
               </button>
-            );
-          })}
-        </div>
+            </div>
+          </div>
+        </>
       )}
     </div>
   );

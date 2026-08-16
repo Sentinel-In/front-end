@@ -3,7 +3,7 @@
    Replaces Annexure A form. Internal investigation report.
    ============================================================ */
 
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import type { Claim, Blocker, Gap } from '../types';
 import { useBlackboardStore } from '../store/useBlackboardStore';
 import { Download, AlertTriangle, FileText, CheckCircle2, Search, Info } from 'lucide-react';
@@ -11,20 +11,15 @@ import { Skeleton, Timestamp, ProvenanceChip } from '../components/primitives';
 import { compositeCoverage } from '../selectors/coverage';
 import { assetsByState } from '../selectors/assets';
 import { openGaps, openBlockers, claimsByAsset } from '../selectors/evidence';
+import { useCaseParam } from '../hooks/useCaseParam';
 
 export function AssetImpactReportPage() {
+  useCaseParam();
   const blackboard = useBlackboardStore((state) => state.blackboard);
   const isLoading = useBlackboardStore((state) => state.isLoading);
-  const load = useBlackboardStore((state) => state.load);
   const isInitialized = blackboard !== null;
 
   const [expandedAssets, setExpandedAssets] = useState<Record<string, boolean>>({});
-
-  useEffect(() => {
-    if (!isInitialized && !isLoading) {
-      load();
-    }
-  }, [isInitialized, isLoading, load]);
 
   if (!isInitialized || isLoading || !blackboard) {
     return (
@@ -285,7 +280,7 @@ export function AssetImpactReportPage() {
             <div key={rem.remediation_id} className="card">
               <div className="flex items-start justify-between">
                 <div>
-                  <h4 style={{ fontSize: '15px', fontWeight: 600, color: 'var(--color-text)', margin: '0 0 4px' }}>{rem.action || (rem as any).title}</h4>
+                  <h4 style={{ fontSize: '15px', fontWeight: 600, color: 'var(--color-text)', margin: '0 0 4px' }}>{(rem as any).action || (rem as any).title}</h4>
                   <div style={{ fontSize: '13px', color: 'var(--color-text-muted)' }}>Target: {rem.target}</div>
                 </div>
                 <div style={{ padding: '2px 8px', borderRadius: '12px', backgroundColor: 'var(--color-surface-2)', border: '1px solid var(--color-border)', fontSize: '11px', color: 'var(--color-text)' }}>
@@ -297,13 +292,13 @@ export function AssetImpactReportPage() {
                 <div style={{ flex: 1 }}>
                   <div style={{ fontSize: '11px', color: 'var(--color-text-dim)', marginBottom: '8px', textTransform: 'uppercase' }}>Prerequisites</div>
                   <ul style={{ margin: 0, padding: 0, listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '6px' }}>
-                    {(rem.prerequisites || []).map((req, i) => (
+                    {((rem as any).prerequisites || []).map((req: string, i: number) => (
                       <li key={i} style={{ fontSize: '13px', color: 'var(--color-text)', display: 'flex', alignItems: 'center', gap: '8px' }}>
                         <div style={{ width: '4px', height: '4px', borderRadius: '50%', backgroundColor: 'var(--color-text-dim)' }} />
                         {req}
                       </li>
                     ))}
-                    {!rem.prerequisites && (rem as any).ordered_phases && (rem as any).ordered_phases.map((phase: string, i: number) => (
+                    {!(rem as any).prerequisites && (rem as any).ordered_phases && (rem as any).ordered_phases.map((phase: string, i: number) => (
                       <li key={i} style={{ fontSize: '13px', color: 'var(--color-text)', display: 'flex', alignItems: 'center', gap: '8px' }}>
                         <div style={{ width: '4px', height: '4px', borderRadius: '50%', backgroundColor: 'var(--color-text-dim)' }} />
                         {phase}

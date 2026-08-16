@@ -4,15 +4,14 @@
    ============================================================ */
 
 import { motion, AnimatePresence } from 'framer-motion';
-import { Search, Shield, X } from 'lucide-react';
+import { Search, X, Copy } from 'lucide-react';
 import { useAppStore } from '../../store/useAppStore';
 import { useBlackboardStore } from '../../store/useBlackboardStore';
-import { useRoleStore } from '../../store/useRoleStore';
+import { RoleGate } from '../primitives';
 
 export function ProvenanceDrawer() {
   const { drawer, closeDrawer } = useAppStore();
   const blackboard = useBlackboardStore((s) => s.blackboard);
-  const canSeeRawEvidence = useRoleStore((s) => s.getCapabilities().canSeeRawEvidence);
 
   const isOpen = drawer?.type === 'provenance';
   const claimId = drawer?.contextId; // we'll pass claimId here
@@ -88,15 +87,7 @@ export function ProvenanceDrawer() {
             {/* Content */}
             <div style={{ flex: 1, overflowY: 'auto', padding: '24px' }}>
               
-              {!canSeeRawEvidence ? (
-                <div style={{ padding: '24px', textAlign: 'center', backgroundColor: 'var(--color-surface-2)', borderRadius: 'var(--radius-card)', border: '1px solid var(--color-border)' }}>
-                  <Shield size={24} style={{ color: 'var(--color-warning)', margin: '0 auto 12px' }} />
-                  <h4 style={{ fontSize: '14px', fontWeight: 600, color: 'var(--color-text)', margin: '0 0 8px' }}>Restricted Access</h4>
-                  <p style={{ fontSize: '13px', color: 'var(--color-text-muted)', margin: 0 }}>
-                    Your role does not permit viewing raw cryptographic evidence or document excerpts.
-                  </p>
-                </div>
-              ) : (
+              <RoleGate capability="canViewRawEvidence">
                 <div className="flex flex-col gap-6">
                   {/* Metadata */}
                   <div>
@@ -118,8 +109,19 @@ export function ProvenanceDrawer() {
 
                   <div>
                     <div style={{ fontSize: '11px', color: 'var(--color-text-dim)', marginBottom: '4px', textTransform: 'uppercase' }}>Artifact Hash (SHA-256)</div>
-                    <div style={{ fontSize: '13px', fontFamily: 'var(--font-mono)', color: 'var(--color-text-muted)', wordBreak: 'break-all' }}>
-                      {scope.artifact_sha256}
+                    <div className="flex items-center gap-2">
+                      <div style={{ flex: 1, fontSize: '13px', fontFamily: 'var(--font-mono)', color: 'var(--color-text-muted)', wordBreak: 'break-all' }}>
+                        {scope.artifact_sha256}
+                      </div>
+                      <button 
+                        onClick={() => {
+                          navigator.clipboard.writeText(scope.artifact_sha256);
+                          useAppStore.getState().pushToast({ message: 'Hash copied', type: 'info', duration: 2000 });
+                        }}
+                        style={{ background: 'var(--color-surface-2)', border: '1px solid var(--color-border)', borderRadius: '6px', padding: '6px', cursor: 'pointer', color: 'var(--color-text)' }}
+                      >
+                        <Copy size={14} />
+                      </button>
                     </div>
                   </div>
 
@@ -140,7 +142,7 @@ export function ProvenanceDrawer() {
                     </div>
                   </div>
                 </div>
-              )}
+              </RoleGate>
 
             </div>
           </motion.div>

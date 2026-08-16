@@ -5,8 +5,10 @@
 import { Link } from 'react-router-dom';
 import { useRoleStore } from '../store/useRoleStore';
 import {
-  Clock, AlertTriangle, Home
+  AlertTriangle, Home, ShieldCheck, FileText
 } from 'lucide-react';
+import { useCaseParam } from '../hooks/useCaseParam';
+import { BoardBriefPanel } from '../components/layout/BoardBriefPanel';
 
 // === Shared Page Shell for Placeholders ===
 
@@ -45,18 +47,40 @@ export { AssetImpactReportPage } from './AssetImpactReportPage';
 
 export { EvidenceExplorerPage } from './EvidenceExplorerPage';
 
-// === Case Timeline (Phase E) ===
-export function CaseTimelinePage() {
-  return <PagePlaceholder title="Case Timeline" icon={Clock} phase={12} description="Decisions, budgets, and ledger head." />;
+export function ApprovalsPage() {
+  return <PagePlaceholder title="Approvals" icon={ShieldCheck} phase={1} description="Executive approval routes are registered; approval workflow remains read-only until Sprint 4." />;
+}
+
+export function BoardBriefPage() {
+  return (
+    <PagePlaceholder title="Board Brief" icon={FileText} phase={1} description="Board Brief routes are registered; the existing frozen brief remains read-only.">
+      <div style={{ marginTop: '24px', textAlign: 'left' }}><BoardBriefPanel /></div>
+    </PagePlaceholder>
+  );
 }
 
 // === Gaps & Blockers (Phase E) ===
 export function GapsPage() {
+  useCaseParam();
   return <PagePlaceholder title="Gaps & Blockers" icon={AlertTriangle} phase={12} description="Frontier nodes, open gaps, and blockers preventing case closure." />;
 }
 
 // === Settings (Existing) ===
 export { SettingsPage } from './SettingsPage';
+
+// === Lead Manager (Phase 3) ===
+export { TriagePage } from '../features/lead/TriagePage';
+export { LeadTicketsPage } from '../features/lead/LeadTicketsPage';
+
+// === Engineer (Phase 4) ===
+export { EngineerTasksPage } from '../features/engineer/EngineerTasksPage';
+export { RunbookPage } from '../features/engineer/RunbookPage';
+export { HistoryPage } from '../features/engineer/HistoryPage';
+
+// === Analyst (Phase 6) ===
+export * from '../features/analyst/AuditTrailPage';
+export * from '../features/analyst/AlertsPage';
+export { RecommendationComposer } from '../features/analyst/RecommendationComposer';
 
 // === Not Found ===
 export function NotFoundPage() {

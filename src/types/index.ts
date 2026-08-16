@@ -5,11 +5,12 @@
 
 // === Roles (SPEC §3) ===
 
-export type Role = 'executive' | 'oncall' | 'analyst';
+export type Role = 'executive' | 'lead_manager' | 'risk_analyst' | 'engineer';
 
 export type Density = 'comfortable' | 'compact' | 'dense';
 
 export interface RoleIdentity {
+  id: string;
   name: string;
   title: string;
   shortTitle: string;
@@ -17,12 +18,24 @@ export interface RoleIdentity {
 }
 
 export interface RoleCapabilities {
-  canApprove: boolean;
-  canSeeRawEvidence: boolean;
-  canRunEsql: boolean;
-  canExport: boolean;
+  canViewPortfolio: boolean;
+  canViewRawEvidence: boolean;
+  canViewEvidenceGraph: boolean;
+  canApproveP0: boolean;
+  canApproveRoutine: boolean;
+  canAuthorizeContainment: boolean;
+  canEscalate: boolean;
+  canAuthorRecommendation: boolean;
+  canResolveContradiction: boolean;
+  canAssignTicket: boolean;
+  canExecuteRunbook: boolean;
+  canRecordVerification: boolean;
+  canRequestReinvocation: boolean;
+  canExportBrief: boolean;
   exportFormats: string[];
 }
+
+export type RoleCapability = Exclude<keyof RoleCapabilities, 'exportFormats'>;
 
 export interface TabConfig {
   id: string;
@@ -80,6 +93,15 @@ export type ApplicabilityState =
 
 export type ItemStatus = 'open' | 'resolved' | 'mitigated' | 'superseded' | 'accepted';
 
+export type Priority = 'P0' | 'P1' | 'P2' | 'P3';
+
+export type WorkflowState =
+  | 'unassigned' | 'triage' | 'escalated_to_analyst' | 'analyst_returned'
+  | 'awaiting_approval' | 'approved' | 'assigned_to_engineer'
+  | 'phase1_in_execution' | 'awaiting_containment_auth'
+  | 'phase2_in_execution' | 'awaiting_verification' | 'awaiting_final_signoff'
+  | 'verified' | 'rejected' | 'dormant' | 'rolled_back' | 'returned_to_lead';
+
 export interface Blackboard {
   schema_version: string;
   case: Case;
@@ -91,7 +113,7 @@ export interface Blackboard {
   claims: Claim[];
   contradictions: Contradiction[];
   assets: AssetMatch[];
-  remediation: Remediation[];
+  remediation: RemediationEntry[];
   verification: Verification[];
   frontier: FrontierNode[];
   gaps: Gap[];
@@ -186,11 +208,35 @@ export interface Contradiction {
   materiality: string; status: ItemStatus; resolution: string; resolved_at?: string;
 }
 
-export interface Remediation {
+export type RemediationEntry = AtomicRemediation | CompositeTicket;
+
+export interface AtomicRemediation {
   remediation_id: string; type: string; target: string; fixed_target: string | null;
   action: string; prerequisites: string[]; restart_or_outage: string;
   rollback: string; evidence_claim_ids: string[];
 }
+
+export interface CompositeTicket {
+  remediation_id: string;
+  type: 'investigation_and_configuration_ticket';
+  title: string;
+  target: string;
+  fixed_target: null;
+  fixed_build: null;
+  patch_action_authorized: boolean;
+  ticket_path: string;
+  owners: {
+    ticket: string; identity: string; data: string;
+    incident: string; business: string; due_date: string;
+  };
+  ordered_phases: string[];
+  restart_or_outage: string;
+  rollback: string;
+  evidence_claim_ids: string[];
+}
+
+export const isCompositeTicket = (r: RemediationEntry): r is CompositeTicket =>
+  'ordered_phases' in r;
 
 export interface Verification {
   verification_id: string; scope: string; acceptance_test: string; expected_result: string;
@@ -223,3 +269,117 @@ export interface Budgets {
 export interface Decision { decision_id: string; decision: string; rationale: string; at: string; }
 export interface FrontierNode { frontier_id: string; url: string; depth: number; priority: string; status: string; reason: string; }
 export interface ReferenceEdge { edge_id: string; from_source_id: string; to_source_id: string; relation: string; depth: number; original_edge_status: string; repair_rationale: string; }
+
+// === Workflows, Notifications, Board Brief ===
+
+export interface CaseSummary {
+  case_id: string;
+  priority: Priority;
+  title: string;
+  workflow_state: WorkflowState;
+  phase: string;
+  assets: { total: number; affected: number; under_investigation: number; };
+  coverage: { identity: number; sources: number; composite: number; };
+  applicability: { score: number; };
+  open_blockers: number;
+  analyst_verdict: string | null;
+  assigned_to: string | null;
+  age_days: number;
+}
+
+export interface Ticket {
+  ticket_id: string;
+  case_id: string;
+  title: string;
+  priority: Priority;
+  workflow_state: WorkflowState;
+  assigned_to: string | null;
+  assigned_by: string | null;
+  change_window: string | null;
+  phase_progress: { current: number; total: number; };
+}
+
+export interface Approval {
+  approval_id: string;
+  case_id: string;
+  type: 'gate1_ticket' | 'gate2_containment' | 'final_signoff' | 'risk_acceptance';
+  status: 'pending' | 'approved' | 'rejected';
+  requested_by: string;
+  requested_at: string;
+}
+
+export interface ExecutionStep {
+  remediation_id: string;
+  status: 'pending' | 'done' | 'blocked' | 'skipped';
+  note: string | null;
+  executed_at: string | null;
+  executed_by: string | null;
+}
+
+export interface VerificationResult {
+  verification_id: string;
+  status: 'pending' | 'pass' | 'fail';
+  observed_value: string | null;
+  executed_at: string | null;
+  executed_by: string | null;
+}
+
+export interface AnalystRecommendation {
+  case_id: string;
+  verdict: 'proceed' | 'need_more_evidence' | 'not_applicable' | 'risk_accept';
+  confidence: number;
+  summary: string;
+  cited_claim_ids: string[];
+  contradictions_addressed: string[];
+  residual_gaps: string[];
+  remediation_ids: string[];
+  escalate_to_executive: boolean;
+}
+
+export interface CaseEventIntent {
+  event_type: string;
+  payload: Record<string, unknown>;
+  actor: string;
+  timestamp: string;
+}
+
+export type NotificationTrigger =
+  | 'ticket_assigned' | 'gate1_requested' | 'gate2_requested' | 'final_signoff_requested'
+  | 'approval_granted' | 'approval_rejected' | 'analyst_escalated' | 'analyst_returned'
+  | 'verification_failed' | 'ticket_blocked' | 'reinvocation_requested' | 'reinvocation_complete'
+  | 'dormant_recheck';
+
+export interface Notification {
+  notification_id: string;
+  trigger: NotificationTrigger | string;
+  actor: string;
+  target_role: Role | 'all';
+  case_id: string;
+  title: string;
+  message: string;
+  created_at: string;
+  read_at: string | null;
+  route: string;
+}
+
+export interface BriefSection {
+  title: string;
+  content: string;
+  edited_by: string | null;
+}
+
+export interface BoardBrief {
+  brief_id: string;
+  period: string;
+  status: 'draft' | 'frozen';
+  sections: {
+    posture: BriefSection;
+    duty_of_care: BriefSection;
+    unknowns: BriefSection;
+    decisions: BriefSection;
+    ask: BriefSection;
+  };
+  frozen_at: string | null;
+  ledger_head_version: number | null;
+  attested_by: string | null;
+}
